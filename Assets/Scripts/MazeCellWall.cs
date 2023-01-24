@@ -1,18 +1,29 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting.Dependencies.NCalc;
 using UnityEngine;
 
 public class MazeCellWall : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public float scaleSize;
+
+    private bool visible = true;
+    private Renderer r;
+
+    public bool Visible
     {
-        
+        get { return visible; }
+        set
+        {
+            visible = value;
+            r.enabled = visible;
+
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Awake()
     {
-        
+        r = GetComponent<Renderer>();
     }
 }

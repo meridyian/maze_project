@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
 
     // for maze prefab (parent object)
     public Maze mazePrefab;
-    public IntVector2 size;
+
     // to be able to hold created instance
     private Maze mazeInstance;
     public Room roomPrefab;
@@ -35,7 +35,7 @@ public class GameManager : MonoBehaviour
     {
         // you need to assign its type as as 
         mazeInstance = Instantiate(mazePrefab) as Maze;
-        StartCoroutine(mazeInstance.Generate());
+        mazeInstance.Generate();
         roomInstance = Instantiate(roomPrefab) as Room;
         StartCoroutine(roomInstance.SpawnRoom());
     }

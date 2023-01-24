@@ -12,18 +12,21 @@ public class Room : MonoBehaviour
     public RoomObj roomPrefab;
     public float distanceBetweenRooms = 3f;
     private List<Vector3> points = new List<Vector3>();
-
+    public int roomCount;
+    public Maze maze;
 
 
     public IEnumerator SpawnRoom()
     {
-        int count = 15;
+         
 
-        for (int i = 0; i < count; i++)
+        for (int i = 0; i < roomCount; i++)
         {
-            float x = Random.Range(-4, 4);
-            float z = Random.Range(-4, 4);
-
+            
+            float x = Random.Range(-Mathf.Round(maze.size.x * 0.5f + 1.5f) ,Mathf.Round(maze.size.x * 0.5f - 1.5f));
+            float z = Random.Range(-Mathf.Round(maze.size.z * 0.5f + 1.5f), Mathf.Round(maze.size.z * 0.5f - 1.5f));
+            
+            
             Vector3 point = new Vector3(x, 0.5f, z);
 
             if (points.Count == 0)
@@ -52,6 +55,7 @@ public class Room : MonoBehaviour
         for (int i = 0; i < points.Count; i++)
         {
             Instantiate(roomPrefab, points[i], Quaternion.identity);
+            Debug.Log(points[i]);
         }
         
     }
