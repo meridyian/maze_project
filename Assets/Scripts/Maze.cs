@@ -2,7 +2,9 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel.Design;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.PlayerLoop;
 using Random = UnityEngine.Random;
 
 public class Maze : MonoBehaviour
@@ -11,6 +13,8 @@ public class Maze : MonoBehaviour
     public IntVector2 size;
     public MazeCell cellPrefab;
     private MazeCell[,] cells;
+    public GameObject wallPrefab;
+    
 
 
 
@@ -18,6 +22,7 @@ public class Maze : MonoBehaviour
     {
         WaitForSeconds delay = new WaitForSeconds(generationStepDelay);   
         cells = new MazeCell[size.x, size.z];
+        
 
         for (int x = 0; x < size.x; x++)
         {
@@ -26,8 +31,13 @@ public class Maze : MonoBehaviour
                 yield return delay;
                 CreateCell(new IntVector2(x, z));
                 
+                
             }
         }
+        
+        
+        
+       
     }
 
     public void CreateCell(IntVector2 coordinates)
