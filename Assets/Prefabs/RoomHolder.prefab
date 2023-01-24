@@ -46,5 +46,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   roomPrefab: {fileID: 2765284317873196787, guid: 21147330064ee474a8ef615b34b3239e, type: 3}
   distanceBetweenRooms: 3
-  roomCount: 100
+  trialCount: 50
   maze: {fileID: 4552829675547296550, guid: e91d38af152744237b0d8acf3c29c51b, type: 3}

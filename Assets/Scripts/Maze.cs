@@ -111,22 +111,25 @@ public class Maze : MonoBehaviour
 
             MazeCell nextCell = neighbours[Random.Range(0, neighbours.Count)];
             nextCell.gameObject.GetComponentInChildren<Renderer>().material.color = Color.gray;
-
+            
+            //rooma ait cell mi
+            
             if (currentCell.position.x == nextCell.position.x)
             {
                 if (currentCell.position.z < nextCell.position.z)
-                    currentCell.North.Visible = false;
+                    //setactive false ile yapman gerekebilir ya da destroy
+                    currentCell.North.gameObject.SetActive(false);
                 else
-                    currentCell.South.Visible = false;
+                    currentCell.South.gameObject.SetActive(false);
 
             }
 
             if (currentCell.position.z == nextCell.position.z)
             {
                 if (currentCell.position.x < nextCell.position.x)
-                    currentCell.East.Visible = false;
+                    currentCell.East.gameObject.SetActive(false);
                 else
-                    currentCell.West.Visible = false;
+                    currentCell.West.gameObject.SetActive(false);
 
             }
 
@@ -182,12 +185,5 @@ public class Maze : MonoBehaviour
 
     }
 
-
-        
-       
-
-
-
-    
     
 }

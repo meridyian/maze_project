@@ -10,6 +10,7 @@ public class MazeCellWall : MonoBehaviour
 
     private bool visible = true;
     private Renderer r;
+    private Collider c;
 
     public bool Visible
     {
@@ -25,5 +26,8 @@ public class MazeCellWall : MonoBehaviour
     public void Awake()
     {
         r = GetComponent<Renderer>();
+
     }
+
+
 }

@@ -49,4 +49,4 @@ MonoBehaviour:
     z: 20
   cellPrefab: {fileID: 7173988776250496257, guid: 370dc6858b9da4410886d8dffce4474a, type: 3}
   wallPrefab: {fileID: -2830167031307628382, guid: 14f340458cabf4678a294806b0d5d63a, type: 3}
-  generationStepDelay: 0.001
+  generationStepDelay: 0
