@@ -23,11 +23,11 @@ public class Room : MonoBehaviour
         for (int i = 0; i < roomCount; i++)
         {
             
-            float x = Random.Range(-Mathf.Round(maze.size.x * 0.5f + 1.5f) ,Mathf.Round(maze.size.x * 0.5f - 1.5f));
-            float z = Random.Range(-Mathf.Round(maze.size.z * 0.5f + 1.5f), Mathf.Round(maze.size.z * 0.5f - 1.5f));
+            float x = Random.Range(-maze.size.x * 0.5f + 2f, maze.size.x * 0.5f - 2f);
+            float z = Random.Range(-maze.size.z * 0.5f + 2f, maze.size.z * 0.5f - 2f);
             
             
-            Vector3 point = new Vector3(x, 0.5f, z);
+            Vector3 point = new Vector3(Mathf.RoundToInt(x), 0.5f, Mathf.RoundToInt(z));
 
             if (points.Count == 0)
             {
