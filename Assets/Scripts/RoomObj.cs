@@ -13,12 +13,5 @@ public class RoomObj : MonoBehaviour
         
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.CompareTag("Wall"))
-        {
-            Debug.Log(other.name);
-        }
-        
-    }
+    
 }

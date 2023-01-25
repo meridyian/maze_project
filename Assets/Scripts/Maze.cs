@@ -59,7 +59,7 @@ public class Maze : MonoBehaviour
         {
             newCell.West = Instantiate(wallPrefab) as MazeCellWall;
             newCell.West.transform.parent = newCell.transform.parent;
-            newCell.West.transform.localPosition = newCell.transform.localPosition + new Vector3(-0.5f, 0f, 0f);
+            newCell.West.transform.localPosition = newCell.transform.localPosition + new Vector3(-0.5f, 0.5f, 0f);
         }
         else
         {
@@ -69,7 +69,7 @@ public class Maze : MonoBehaviour
         {
             newCell.South = Instantiate(wallPrefab) as MazeCellWall;
             newCell.South.transform.parent = newCell.transform.parent;
-            newCell.South.transform.localPosition = newCell.transform.localPosition + new Vector3(0f, 0f, -0.5f);
+            newCell.South.transform.localPosition = newCell.transform.localPosition + new Vector3(0f, 0.5f, -0.5f);
         }
         else
         {
@@ -77,11 +77,11 @@ public class Maze : MonoBehaviour
         }
         newCell.North = Instantiate(wallPrefab) as MazeCellWall;
         newCell.North.transform.parent = newCell.transform.parent;
-        newCell.North.transform.localPosition = newCell.transform.localPosition + new Vector3(0f, 0f, 0.5f);
+        newCell.North.transform.localPosition = newCell.transform.localPosition + new Vector3(0f, 0.5f, 0.5f);
         
         newCell.East = Instantiate(wallPrefab) as MazeCellWall;
         newCell.East.transform.parent = newCell.transform.parent;
-        newCell.East.transform.localPosition = newCell.transform.localPosition + new Vector3(0.5f, 0f, 0f);
+        newCell.East.transform.localPosition = newCell.transform.localPosition + new Vector3(0.5f, 0.5f, 0f);
     }
 
     public IEnumerator DFS()

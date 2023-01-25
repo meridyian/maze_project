@@ -168,9 +168,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mazePrefab: {fileID: 4552829675547296550, guid: e91d38af152744237b0d8acf3c29c51b, type: 3}
-  size:
-    x: 10
-    z: 10
   roomPrefab: {fileID: 1748227144377490132, guid: aa3ff4ff39b734d109184ebb68390e38, type: 3}
 --- !u!1 &705507993
 GameObject:

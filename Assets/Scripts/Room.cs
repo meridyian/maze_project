@@ -9,7 +9,7 @@ using Random = UnityEngine.Random;
 
 public class Room : MonoBehaviour
 {
-    public RoomObj roomPrefab;
+    public RoomObj[] roomPrefabs;
     public float distanceBetweenRooms = 3f;
     private List<Vector3> points = new List<Vector3>();
     public int trialCount;
@@ -23,8 +23,8 @@ public class Room : MonoBehaviour
         for (int i = 0; i < trialCount; i++)
         {
             
-            float x = Random.Range(-maze.size.x * 0.5f + 2f, maze.size.x * 0.5f - 2f);
-            float z = Random.Range(-maze.size.z * 0.5f + 2f, maze.size.z * 0.5f - 2f);
+            float x = Random.Range(-maze.size.x * 0.5f + 2.5f, maze.size.x * 0.5f - 2.5f);
+            float z = Random.Range(-maze.size.z * 0.5f + 2.5f, maze.size.z * 0.5f - 2.5f);
             
             
             Vector3 point = new Vector3(Mathf.RoundToInt(x), 0.5f, Mathf.RoundToInt(z));
@@ -54,7 +54,8 @@ public class Room : MonoBehaviour
         yield return new WaitForSeconds(9);
         for (int i = 0; i < points.Count; i++)
         {
-            Instantiate(roomPrefab, points[i], Quaternion.identity);
+            int randomIndex = Random.Range(0, roomPrefabs.Length);
+            Instantiate(roomPrefabs[randomIndex], points[i], Quaternion.identity);
             
             Debug.Log(points[i]);
         }

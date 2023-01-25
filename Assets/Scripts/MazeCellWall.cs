@@ -1,13 +1,14 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Net;
 using Unity.VisualScripting.Dependencies.NCalc;
 using UnityEngine;
 
 public class MazeCellWall : MonoBehaviour
 {
     public float scaleSize;
-
+    [SerializeField] private Maze maze;
     private bool visible = true;
     private Renderer r;
     private Collider c;
@@ -23,10 +24,25 @@ public class MazeCellWall : MonoBehaviour
         }
     }
 
+    
+
     public void Awake()
     {
         r = GetComponent<Renderer>();
 
+    }
+    
+    public void OnTriggerEnter(Collider other)
+    {
+        // &&onBounds()
+        
+        
+        if (other.gameObject.CompareTag("Room"))
+        {
+            Destroy(gameObject);
+        }
+        
+        
     }
 
 
