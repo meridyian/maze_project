@@ -14,17 +14,18 @@ public class Room : MonoBehaviour
     private List<Vector3> points = new List<Vector3>();
     public int trialCount;
     public Maze maze;
+    public float maxRoomSize = 3f;
     
 
     public IEnumerator SpawnRoom()
     {
-
+        
         
         for (int i = 0; i < trialCount; i++)
         {
             
-            float x = Random.Range(-maze.size.x * 0.5f + 2.5f, maze.size.x * 0.5f - 2.5f);
-            float z = Random.Range(-maze.size.z * 0.5f + 2.5f, maze.size.z * 0.5f - 2.5f);
+            float x = Random.Range(-maze.size.x * 0.5f + 3.5f, maze.size.x * 0.5f - 3.5f);
+            float z = Random.Range(-maze.size.z * 0.5f + 3.5f, maze.size.z * 0.5f - 3.5f);
             
             
             Vector3 point = new Vector3(Mathf.RoundToInt(x), 0.5f, Mathf.RoundToInt(z));

@@ -14,7 +14,7 @@ public class Maze : MonoBehaviour
     public MazeCell cellPrefab;
     public MazeCellWall wallPrefab;
     public float generationStepDelay;
-    
+
     private MazeCell[,] cells;
 
     
@@ -90,7 +90,10 @@ public class Maze : MonoBehaviour
         Stack<MazeCell> cellsStack = new Stack<MazeCell>();
 
         // start from a random cell, add randomization
-        MazeCell currentCell = cells[0, 0];
+        int startingRandx = Random.Range(0, size.x);
+        int startingRandz = Random.Range(0, size.z);
+        MazeCell currentCell = cells[startingRandx,startingRandz];
+
         currentCell.Visited = true;
         cellsStack.Push(currentCell);
 
