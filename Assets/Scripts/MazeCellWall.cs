@@ -12,6 +12,7 @@ public class MazeCellWall : MonoBehaviour
     private bool visible = true;
     private Renderer r;
     private Collider c;
+    //public bool playercanPass;
 
     public bool Visible
     {
@@ -32,18 +33,20 @@ public class MazeCellWall : MonoBehaviour
 
     }
     
-    public void OnTriggerEnter(Collider other)
+    /*public void OnTriggerEnter(Collider other)
     {
-        // &&onBounds()
-        
-        
-        if (other.gameObject.CompareTag("Room"))
+
+        if (other.gameObject.CompareTag("Room Wall"))
         {
-            Destroy(gameObject);
+            
+            gameObject.SetActive(false);
+
         }
+
         
         
     }
+    */
 
 
 }

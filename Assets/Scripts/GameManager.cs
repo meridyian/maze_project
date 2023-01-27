@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -10,11 +11,15 @@ public class GameManager : MonoBehaviour
     public Maze mazePrefab;
 
     // to be able to hold created instance
-    private Maze mazeInstance;
+    private Maze mazeInstance;   
     public Room roomPrefab;
     private Room roomInstance;
-
-
+    private bool spawnroom;
+    private RoomWall roomWall;
+    
+    
+    
+    
 
     void Start()
     {
@@ -29,6 +34,8 @@ public class GameManager : MonoBehaviour
         {
             RestartGame();
         }
+
+
     }
 
     private void BeginGame()
@@ -38,6 +45,9 @@ public class GameManager : MonoBehaviour
         mazeInstance.Generate();
         roomInstance = Instantiate(roomPrefab) as Room;
         StartCoroutine(roomInstance.SpawnRoom());
+
+        
+
     }
 
     private void RestartGame()

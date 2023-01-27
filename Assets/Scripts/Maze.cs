@@ -15,13 +15,11 @@ public class Maze : MonoBehaviour
     public MazeCellWall wallPrefab;
     public float generationStepDelay;
 
+
     private MazeCell[,] cells;
 
     
-    void Start () {
-        Debug.Log("Maze.Start()");
-    }
-	
+    
     void Update () {
 		
     }
@@ -58,8 +56,9 @@ public class Maze : MonoBehaviour
         if (x == 0)
         {
             newCell.West = Instantiate(wallPrefab) as MazeCellWall;
-            newCell.West.transform.parent = newCell.transform.parent;
-            newCell.West.transform.localPosition = newCell.transform.localPosition + new Vector3(-0.5f, 0.5f, 0f);
+            newCell.West.name = "West " + wallPrefab.name;
+            newCell.West.transform.parent = newCell.transform;
+            newCell.West.transform.localPosition = new Vector3(-0.5f, 0.5f, 0f);
         }
         else
         {
@@ -68,20 +67,23 @@ public class Maze : MonoBehaviour
         if (z == 0)
         {
             newCell.South = Instantiate(wallPrefab) as MazeCellWall;
-            newCell.South.transform.parent = newCell.transform.parent;
-            newCell.South.transform.localPosition = newCell.transform.localPosition + new Vector3(0f, 0.5f, -0.5f);
+            newCell.South.name = "South " + wallPrefab.name;
+            newCell.South.transform.parent = newCell.transform;
+            newCell.South.transform.localPosition = new Vector3(0f, 0.5f, -0.5f);
         }
         else
         {
             newCell.South = cells[x, z-1].North;
         }
         newCell.North = Instantiate(wallPrefab) as MazeCellWall;
-        newCell.North.transform.parent = newCell.transform.parent;
-        newCell.North.transform.localPosition = newCell.transform.localPosition + new Vector3(0f, 0.5f, 0.5f);
+        newCell.North.name = "North " + wallPrefab.name;
+        newCell.North.transform.parent = newCell.transform;
+        newCell.North.transform.localPosition = new Vector3(0f, 0.5f, 0.5f);
         
         newCell.East = Instantiate(wallPrefab) as MazeCellWall;
-        newCell.East.transform.parent = newCell.transform.parent;
-        newCell.East.transform.localPosition = newCell.transform.localPosition + new Vector3(0.5f, 0.5f, 0f);
+        newCell.East.name = "East " + wallPrefab.name;
+        newCell.East.transform.parent = newCell.transform;
+        newCell.East.transform.localPosition = new Vector3(0.5f, 0.5f, 0f);
     }
 
     public IEnumerator DFS()
@@ -90,6 +92,7 @@ public class Maze : MonoBehaviour
         Stack<MazeCell> cellsStack = new Stack<MazeCell>();
 
         // start from a random cell, add randomization
+        // debug at floatı nasıl oldu?
         int startingRandx = Random.Range(0, size.x);
         int startingRandz = Random.Range(0, size.z);
         MazeCell currentCell = cells[startingRandx,startingRandz];
@@ -140,8 +143,12 @@ public class Maze : MonoBehaviour
 
             cellsStack.Push(currentCell);
             currentCell = nextCell;
+            
 
         }
+
+        
+
     }
 
     public void TestDFS()
@@ -187,6 +194,7 @@ public class Maze : MonoBehaviour
         return cellsList;
 
     }
+    
 
     
 }

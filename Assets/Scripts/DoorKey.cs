@@ -8,12 +8,14 @@ public class DoorKey : MonoBehaviour
     public bool inTrigger;
     private void OnTriggerEnter(Collider other)
     {
-        inTrigger = true;
+        if(other.gameObject.CompareTag("Player"))
+            inTrigger = true;
     }
 
     private void OnTriggerExit(Collider other)
     {
-        inTrigger = false;
+        if(other.gameObject.CompareTag("Player"))
+            inTrigger = false;
     }
 
     private void Update()
@@ -22,7 +24,7 @@ public class DoorKey : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.E))
             {
-                DoorScript.doorKey = true;
+                //DoorScript.doorKey = true;
                 Destroy(this.gameObject);
             }
         }

@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net;
 using Unity.VisualScripting;
 using UnityEditor.Experimental;
@@ -10,12 +11,44 @@ using Random = UnityEngine.Random;
 public class Room : MonoBehaviour
 {
     public RoomObj[] roomPrefabs;
-    public float distanceBetweenRooms = 3f;
+    public float distanceBetweenRooms;
     private List<Vector3> points = new List<Vector3>();
-    public int trialCount;
+    private GameManager gameManager;
     public Maze maze;
-    public float maxRoomSize = 3f;
+    private MazeCell mazeCell;
+    private float maxRoomWidth;
+    public int trialCount;
     
+
+    public int numofKeys;
+    
+    private RoomWall roomWall;
+
+    public float transformPntExtens = 3.5f;
+
+
+    public List<float> x = new List<float>();
+    private List<Vector3> keySpawnpoints = new List<Vector3>();
+    
+    public void Awake()
+    {
+        SetSize();
+    }
+
+
+    public float SetSize()
+    {
+        foreach (var item in roomPrefabs)
+        {
+            float k = item.transform.localScale.x;
+
+            x.Add(k);
+            x = x.OrderBy(k => k).ToList();
+            maxRoomWidth = x.Last();
+        }
+
+        return maxRoomWidth;
+    }
 
     public IEnumerator SpawnRoom()
     {
@@ -24,8 +57,8 @@ public class Room : MonoBehaviour
         for (int i = 0; i < trialCount; i++)
         {
             
-            float x = Random.Range(-maze.size.x * 0.5f + 3.5f, maze.size.x * 0.5f - 3.5f);
-            float z = Random.Range(-maze.size.z * 0.5f + 3.5f, maze.size.z * 0.5f - 3.5f);
+            float x = Random.Range(-maze.size.x * 0.5f + transformPntExtens, maze.size.x * 0.5f - transformPntExtens);
+            float z = Random.Range(-maze.size.z * 0.5f + transformPntExtens, maze.size.z * 0.5f - transformPntExtens);
             
             
             Vector3 point = new Vector3(Mathf.RoundToInt(x), 0.5f, Mathf.RoundToInt(z));
@@ -50,18 +83,40 @@ public class Room : MonoBehaviour
                 }
                 break;
             }
+            
         }
 
-        yield return new WaitForSeconds(9);
+        yield return new WaitForSeconds(13);
+        
         for (int i = 0; i < points.Count; i++)
         {
             int randomIndex = Random.Range(0, roomPrefabs.Length);
             Instantiate(roomPrefabs[randomIndex], points[i], Quaternion.identity);
-            
             Debug.Log(points[i]);
+            
         }
+
+        
+        
+        yield return new WaitForSeconds(5);
+
+        /*for (int k = 0; k < numofKeys; k++)
+        {
+            float u = Random.Range(-maze.size.x * 0.5f + transformPntExtens, maze.size.x * 0.5f - transformPntExtens);
+            float p = Random.Range(-maze.size.z * 0.5f + transformPntExtens, maze.size.z * 0.5f - transformPntExtens);
+            
+            
+            Vector3 keySpawn = new Vector3(Mathf.RoundToInt(u), 0.5f, Mathf.RoundToInt(p));
+            keySpawnpoints.Add(keySpawn);
+            int randomkeyIndex = Random.Range(0, keySpawnpoints.Count);
+            Instantiate(keyPrefab,keySpawnpoints[randomkeyIndex] , Quaternion.identity);
+        }
+        */
+
         
     }
-
     
+    
+
+
 }
