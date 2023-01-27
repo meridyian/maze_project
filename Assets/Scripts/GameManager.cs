@@ -38,7 +38,7 @@ public class GameManager : MonoBehaviour
 
     }
 
-    private void BeginGame()
+    public void BeginGame()
     {
         // you need to assign its type as as 
         mazeInstance = Instantiate(mazePrefab) as Maze;
@@ -50,11 +50,11 @@ public class GameManager : MonoBehaviour
 
     }
 
-    private void RestartGame()
+    public void RestartGame()
     {
         StopAllCoroutines();
         Destroy(mazeInstance.gameObject);
-        BeginGame();
+        //BeginGame();
     }
     
 
