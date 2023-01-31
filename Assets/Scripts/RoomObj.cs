@@ -11,11 +11,11 @@ public class RoomObj : MonoBehaviour
     public List<Transform> roomWalls;
     public List<Transform> doorLocations;
     public GameObject doorPrefab;
+    private int spawnDelay = 0;
 
 
     private void Start()
-    {
-        StartCoroutine(SpawnDoors());
+    { 
         List<Transform> doorLocations = new List<Transform>();
     }
 
@@ -50,7 +50,7 @@ public class RoomObj : MonoBehaviour
 
     public IEnumerator SpawnDoors()
     {
-        yield return new WaitForSeconds(15);
+        yield return new WaitForSeconds(spawnDelay);
         int transformLength = roomWalls.Count;
         for (int i = 0; i < transformLength; i++)
         {

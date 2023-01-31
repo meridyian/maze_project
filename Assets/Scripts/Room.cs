@@ -11,6 +11,7 @@ using Random = UnityEngine.Random;
 public class Room : MonoBehaviour
 {
     public RoomObj[] roomPrefabs;
+    public RoomObj roomObjScript;
     public float distanceBetweenRooms;
     private List<Vector3> points = new List<Vector3>();
     private GameManager gameManager;
@@ -97,38 +98,12 @@ public class Room : MonoBehaviour
             Debug.Log(points[i]);
             
         }
+        
+        StartCoroutine(roomObjScript.SpawnDoors());
 
         
-        
-
-        /*for (int k = 0; k < numofKeys; k++)
-        {
-            float u = Random.Range(-maze.size.x * 0.5f + transformPntExtens, maze.size.x * 0.5f - transformPntExtens);
-            float p = Random.Range(-maze.size.z * 0.5f + transformPntExtens, maze.size.z * 0.5f - transformPntExtens);
-            
-            
-            Vector3 keySpawn = new Vector3(Mathf.RoundToInt(u), 0.5f, Mathf.RoundToInt(p));
-            keySpawnpoints.Add(keySpawn);
-            int randomkeyIndex = Random.Range(0, keySpawnpoints.Count);
-            Instantiate(keyPrefab,keySpawnpoints[randomkeyIndex] , Quaternion.identity);
-        }
-        */
-
         
     }
-
-
-    /*public Vector3 ListSolver()
-    {
-        for (int i = 0; i < maze.deadEndList.Count; i++)
-        {
-            float x = maze.deadEndList[i].x;
-            float z = maze.deadEndList[i].z;
-        }
-    }
-    */
-
-
-
+    
 
 }
