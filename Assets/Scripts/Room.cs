@@ -35,7 +35,7 @@ public class Room : MonoBehaviour
         SetSize();
     }
 
-
+    
     public float SetSize()
     {
         foreach (var item in roomPrefabs)
@@ -56,6 +56,8 @@ public class Room : MonoBehaviour
         
         for (int i = 0; i < trialCount; i++)
         {
+            // deadend listte celller tutuluyo, 
+            // celllerin transformlarının değerlerini çekip bulnar arasında oluşturabilirsin
             
             float x = Random.Range(-maze.size.x * 0.5f + transformPntExtens, maze.size.x * 0.5f - transformPntExtens);
             float z = Random.Range(-maze.size.z * 0.5f + transformPntExtens, maze.size.z * 0.5f - transformPntExtens);
@@ -85,8 +87,8 @@ public class Room : MonoBehaviour
             }
             
         }
-
-        yield return new WaitForSeconds(13);
+        
+        yield return new WaitForSeconds(1);
         
         for (int i = 0; i < points.Count; i++)
         {
@@ -98,7 +100,6 @@ public class Room : MonoBehaviour
 
         
         
-        yield return new WaitForSeconds(5);
 
         /*for (int k = 0; k < numofKeys; k++)
         {
@@ -115,8 +116,19 @@ public class Room : MonoBehaviour
 
         
     }
-    
-    
+
+
+    /*public Vector3 ListSolver()
+    {
+        for (int i = 0; i < maze.deadEndList.Count; i++)
+        {
+            float x = maze.deadEndList[i].x;
+            float z = maze.deadEndList[i].z;
+        }
+    }
+    */
+
+
 
 
 }

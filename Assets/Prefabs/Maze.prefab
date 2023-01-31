@@ -45,8 +45,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   size:
-    x: 20
-    z: 20
+    x: 40
+    z: 40
   cellPrefab: {fileID: 7173988776250496257, guid: 370dc6858b9da4410886d8dffce4474a, type: 3}
   wallPrefab: {fileID: -2830167031307628382, guid: 14f340458cabf4678a294806b0d5d63a, type: 3}
   generationStepDelay: 0
+  deadEndList: []
+  room: {fileID: 1748227144377490132, guid: aa3ff4ff39b734d109184ebb68390e38, type: 3}

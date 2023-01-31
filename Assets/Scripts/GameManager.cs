@@ -44,7 +44,7 @@ public class GameManager : MonoBehaviour
         mazeInstance = Instantiate(mazePrefab) as Maze;
         mazeInstance.Generate();
         roomInstance = Instantiate(roomPrefab) as Room;
-        StartCoroutine(roomInstance.SpawnRoom());
+        //StartCoroutine(roomInstance.SpawnRoom());
 
         
 

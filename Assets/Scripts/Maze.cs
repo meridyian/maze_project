@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel.Design;
 using Unity.VisualScripting;
+using UnityEditor.U2D;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
 using Random = UnityEngine.Random;
@@ -14,6 +15,8 @@ public class Maze : MonoBehaviour
     public MazeCell cellPrefab;
     public MazeCellWall wallPrefab;
     public float generationStepDelay;
+    public List<Vector3> deadEndList;
+    public Room roomHolder;
 
 
     private MazeCell[,] cells;
@@ -41,12 +44,13 @@ public class Maze : MonoBehaviour
         }
 
         StartCoroutine(DFS());
-        
+        // burda bir bekleme zamanı verip oda oluşturmayı burda çağırsan ya da DFS içine bool atıp 
+        // game managerda baksan 
     }
 
     public void CreateCell(int x, int z)
     {
-        
+        deadEndList = new List<Vector3>();
         MazeCell newCell = Instantiate(cellPrefab) as MazeCell;
         newCell.Initialize(x,z,transform);
         cells[x,z] = newCell;
@@ -58,10 +62,12 @@ public class Maze : MonoBehaviour
             newCell.West = Instantiate(wallPrefab) as MazeCellWall;
             newCell.West.name = "West " + wallPrefab.name;
             newCell.West.transform.parent = newCell.transform;
+            //newCell.West.transform.localPosition can be kept for backtracking 
             newCell.West.transform.localPosition = new Vector3(-0.5f, 0.5f, 0f);
         }
         else
         {
+            // if x != 0 east wall of the cell on the left will be west wall of the newcell
             newCell.West = cells[x - 1, z].East;
         }
         if (z == 0)
@@ -73,6 +79,7 @@ public class Maze : MonoBehaviour
         }
         else
         {
+            // if z != 0 north wall of the down cell  will be south wall of the newcell
             newCell.South = cells[x, z-1].North;
         }
         newCell.North = Instantiate(wallPrefab) as MazeCellWall;
@@ -88,13 +95,16 @@ public class Maze : MonoBehaviour
 
     public IEnumerator DFS()
     {
-        // generate it using Stack
+        // uses stack since it works with LIFO 
+        // your last cell of the active path will be the first cell after reaching the dead end
+        
         Stack<MazeCell> cellsStack = new Stack<MazeCell>();
 
         // start from a random cell, add randomization
-        // debug at floatı nasıl oldu?
+       
         int startingRandx = Random.Range(0, size.x);
         int startingRandz = Random.Range(0, size.z);
+        // assign it as a starting point
         MazeCell currentCell = cells[startingRandx,startingRandz];
 
         currentCell.Visited = true;
@@ -111,14 +121,19 @@ public class Maze : MonoBehaviour
             // dead-end
             if (neighbours.Count == 0)
             {
+                // to check if you can see the deadends
+                deadEndList.Add(currentCell.transform.localPosition);
                 currentCell = cellsStack.Pop();
                 continue;
             }
+            
+            // take a random cell from neighbours list to visit as nextCell
+            // in the roomcase you cannot take a random cell, you have to be specifying the cells
+            // that you have no walls between 
 
             MazeCell nextCell = neighbours[Random.Range(0, neighbours.Count)];
             nextCell.gameObject.GetComponentInChildren<Renderer>().material.color = Color.gray;
             
-            //rooma ait cell mi
             
             if (currentCell.position.x == nextCell.position.x)
             {
@@ -144,10 +159,16 @@ public class Maze : MonoBehaviour
             cellsStack.Push(currentCell);
             currentCell = nextCell;
             
+            
 
         }
-
         
+        Debug.Log("DFS is finished");
+        
+        StartCoroutine(roomHolder.SpawnRoom());
+        
+
+
 
     }
 

@@ -9,13 +9,14 @@ public class RoomObj : MonoBehaviour
 {
     [SerializeField]
     public List<Transform> roomWalls;
-
+    public List<Transform> doorLocations;
     public GameObject doorPrefab;
 
 
     private void Start()
     {
         StartCoroutine(SpawnDoors());
+        List<Transform> doorLocations = new List<Transform>();
     }
 
 
@@ -54,6 +55,8 @@ public class RoomObj : MonoBehaviour
         for (int i = 0; i < transformLength; i++)
         {
             Instantiate(doorPrefab, roomWalls[i].position ,roomWalls[i].rotation, GetComponent<Transform>());
+            doorLocations.Add(doorPrefab.GetComponentInParent<Transform>());
+            Debug.Log(doorPrefab.GetComponentInParent<Transform>());
             roomWalls[i].gameObject.SetActive(false);
         }
         
