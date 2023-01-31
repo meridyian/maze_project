@@ -11,7 +11,6 @@ using Random = UnityEngine.Random;
 public class Room : MonoBehaviour
 {
     public RoomObj[] roomPrefabs;
-    public RoomObj roomObjScript;
     public float distanceBetweenRooms;
     private List<Vector3> points = new List<Vector3>();
     private GameManager gameManager;
@@ -99,7 +98,7 @@ public class Room : MonoBehaviour
             
         }
         
-        StartCoroutine(roomObjScript.SpawnDoors());
+
 
         
         

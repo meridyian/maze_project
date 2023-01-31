@@ -11,11 +11,12 @@ public class RoomObj : MonoBehaviour
     public List<Transform> roomWalls;
     public List<Transform> doorLocations;
     public GameObject doorPrefab;
-    private int spawnDelay = 0;
+    private int spawnDelay = 3;
 
 
     private void Start()
     { 
+        StartCoroutine(SpawnDoors());
         List<Transform> doorLocations = new List<Transform>();
     }
 
