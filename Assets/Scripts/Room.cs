@@ -2,9 +2,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net;
-using Unity.VisualScripting;
-using UnityEditor.Experimental;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -17,16 +14,11 @@ public class Room : MonoBehaviour
     public Maze maze;
     private MazeCell mazeCell;
     private float maxRoomWidth;
-    public int trialCount;
-    
+    public int roomCount;
 
-    public int numofKeys;
     
     private RoomWall roomWall;
-
-    public float transformPntExtens = 3.5f;
-
-
+    public float transformPntExtens;
     public List<float> x = new List<float>();
     private List<Vector3> keySpawnpoints = new List<Vector3>();
     
@@ -46,6 +38,7 @@ public class Room : MonoBehaviour
             x = x.OrderBy(k => k).ToList();
             maxRoomWidth = x.Last();
         }
+        
 
         return maxRoomWidth;
     }
@@ -54,10 +47,8 @@ public class Room : MonoBehaviour
     {
         
         
-        for (int i = 0; i < trialCount; i++)
+        for (int i = 0; i < roomCount; i++)
         {
-            // deadend listte celller tutuluyo, 
-            // celllerin transformlarının değerlerini çekip bulnar arasında oluşturabilirsin
             
             float x = Random.Range(-maze.size.x * 0.5f + transformPntExtens, maze.size.x * 0.5f - transformPntExtens);
             float z = Random.Range(-maze.size.z * 0.5f + transformPntExtens, maze.size.z * 0.5f - transformPntExtens);
@@ -69,6 +60,7 @@ public class Room : MonoBehaviour
             {
                 points.Add(point);
                 i++;
+                Debug.Log("first room");
                 continue;
             }
 
@@ -95,12 +87,7 @@ public class Room : MonoBehaviour
             int randomIndex = Random.Range(0, roomPrefabs.Length);
             Instantiate(roomPrefabs[randomIndex], points[i], Quaternion.identity);
             Debug.Log(points[i]);
-            
         }
-        
-
-
-        
         
     }
     

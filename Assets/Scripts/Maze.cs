@@ -17,8 +17,8 @@ public class Maze : MonoBehaviour
     public float generationStepDelay;
     public List<Vector3> deadEndList;
     public Room roomHolder;
-
-
+    public GameObject player;
+    
     private MazeCell[,] cells;
 
     
@@ -93,6 +93,9 @@ public class Maze : MonoBehaviour
         newCell.East.transform.localPosition = new Vector3(0.5f, 0.5f, 0f);
     }
 
+    
+    
+    
     public IEnumerator DFS()
     {
         // uses stack since it works with LIFO 
@@ -104,9 +107,11 @@ public class Maze : MonoBehaviour
        
         int startingRandx = Random.Range(0, size.x);
         int startingRandz = Random.Range(0, size.z);
-        // assign it as a starting point
+        
         MazeCell currentCell = cells[startingRandx,startingRandz];
-
+        MazeCell startingCell = cells[startingRandx,startingRandz];
+        Instantiate(player, startingCell.transform.position, Quaternion.identity);
+        
         currentCell.Visited = true;
         cellsStack.Push(currentCell);
 
@@ -166,23 +171,10 @@ public class Maze : MonoBehaviour
         Debug.Log("DFS is finished");
         
         StartCoroutine(roomHolder.SpawnRoom());
-        
-
-
 
     }
 
-    public void TestDFS()
-    {
-        for(int x = 0; x<size.x; x++)
-        {
-            for(int z =0; z<size.z; z++) {
-                Debug.Log("Cell[" + x + "," + z + "]: " + getUnvisitedNeighbours(cells[x, z]).Count);
-            }
-        }
-
-        cells[2, 2].North.Visible = false;
-    }
+    
     
     private List<MazeCell> getUnvisitedNeighbours(MazeCell cell)
     {

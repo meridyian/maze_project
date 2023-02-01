@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3687324297699094108}
   - component: {fileID: 1748227144377490132}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: RoomHolder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -49,7 +49,6 @@ MonoBehaviour:
   - {fileID: 2765284317873196787, guid: faa490e88b86c4e59b274f8bb220b638, type: 3}
   distanceBetweenRooms: 6
   maze: {fileID: 4552829675547296550, guid: e91d38af152744237b0d8acf3c29c51b, type: 3}
-  trialCount: 250
-  keyPrefab: {fileID: 5947299693984543623, guid: 7c3ef5f4c663c4a659436e8e8f8a2112, type: 3}
-  numofKeys: 7
+  roomCount: 7
+  transformPntExtens: 3.5
   x: []

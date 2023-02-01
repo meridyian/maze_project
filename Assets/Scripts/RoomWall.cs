@@ -7,16 +7,15 @@ using UnityEngine;
 public class RoomWall : MonoBehaviour
 {
 
-    public void OnTriggerEnter(Collider other)
+    
+    public void OnCollisionEnter(Collision other)
     {
         Debug.Log(other.gameObject.name + "a");
         
         if (other.gameObject.CompareTag("Wall"))
         {
             StartCoroutine(RemoveWalls());
-
-            //other.gameObject.GetComponent<Renderer>().material.color = Color.black;
-            //gameObject.GetComponent<Renderer>().material.color = Color.red;
+            other.gameObject.SetActive(false);
 
 
         }
@@ -31,6 +30,8 @@ public class RoomWall : MonoBehaviour
         
         GetComponent<Transform>().parent.gameObject.GetComponent<RoomObj>().roomWalls.Remove(
             GetComponent<Transform>());
+
+        
     }
     
 }

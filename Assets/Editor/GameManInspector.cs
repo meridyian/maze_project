@@ -14,10 +14,7 @@ public class GameManInspector : Editor
             gameManager.BeginGame();
         }
             
-        if (GUILayout.Button("Reset Maze"))
-        {
-            gameManager.RestartGame();
-        }
+
         
     }
 }

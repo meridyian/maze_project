@@ -52,3 +52,4 @@ MonoBehaviour:
   generationStepDelay: 0
   deadEndList: []
   roomHolder: {fileID: 1748227144377490132, guid: aa3ff4ff39b734d109184ebb68390e38, type: 3}
+  player: {fileID: 4062682287443211232, guid: b5c83abb6d24f46d5bc4b3a0e3cc158e, type: 3}

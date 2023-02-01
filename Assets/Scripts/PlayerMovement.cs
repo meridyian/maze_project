@@ -3,19 +3,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.U2D;
 using UnityEngine;
+using UnityEngine.PlayerLoop;
 
 public class PlayerMovement : MonoBehaviour
 {
     [Header("Movement")] 
     public float moveSpeed;
 
-    public float groundDrag;
     
     // if the player is on the ground apply drag
-    [Header("Ground Check")] 
-    public float playerHeight;
-    public  LayerMask whatIsGround;
-    bool grounded;
 
     public Transform orientation;
 
@@ -30,28 +26,21 @@ public class PlayerMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
+        
     }
 
-    public void Update()
+    private void Update()
     {
-        // ground check
-        grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, whatIsGround);
-        
         MyInput();
-        SpeedControl();
-        
-        // handle drag
-        if (grounded)
-        {
-            rb.drag = groundDrag;
-        }
-        else
-            rb.drag = 0;
     }
+    
 
     private void FixedUpdate()
     {
+        
+        SpeedControl();
         MovePlayer();
+        
     }
 
     private void MyInput()
@@ -61,13 +50,16 @@ public class PlayerMovement : MonoBehaviour
         
     }
 
-    private void MovePlayer()
+    public void MovePlayer()
     {
-        // calculate movement direction 
-        // to be able to move in the direction of eye
-        moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
         
-        rb.AddForce(moveDirection.normalized * moveSpeed * 10f, ForceMode.Force);
+        {
+            moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
+            rb.velocity = new Vector3(moveDirection.x, 0f, moveDirection.z);
+            //rb.AddForce(moveDirection.normalized * moveSpeed , ForceMode.Force);
+        }
+        
+        
     }
 
     private void SpeedControl()

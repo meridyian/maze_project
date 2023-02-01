@@ -11,7 +11,10 @@ public class RoomObj : MonoBehaviour
     public List<Transform> roomWalls;
     public List<Transform> doorLocations;
     public GameObject doorPrefab;
+
     private int spawnDelay = 3;
+
+
 
 
     private void Start()
@@ -21,7 +24,7 @@ public class RoomObj : MonoBehaviour
     }
 
 
-    private void Awake()
+    public void Awake()
     {
         roomWalls = new List<Transform>();
         int iter = gameObject.transform.childCount;
@@ -34,7 +37,7 @@ public class RoomObj : MonoBehaviour
 
     }
     
-    public void OnTriggerEnter(Collider other)
+    public void OnCollisionEnter(Collision other)
     {
         // &&onBounds()
         
@@ -42,8 +45,9 @@ public class RoomObj : MonoBehaviour
         if (other.gameObject.CompareTag("Wall"))
         {
 
-            //playercanPass = false;
+            //playercanPass = false;a
             other.gameObject.SetActive(false);
+            transform.GetComponent<BoxCollider>().isTrigger = true;
         }
         
         
@@ -55,12 +59,17 @@ public class RoomObj : MonoBehaviour
         int transformLength = roomWalls.Count;
         for (int i = 0; i < transformLength; i++)
         {
+            roomWalls[i].gameObject.SetActive(false);
             Instantiate(doorPrefab, roomWalls[i].position ,roomWalls[i].rotation, GetComponent<Transform>());
             doorLocations.Add(doorPrefab.GetComponentInParent<Transform>());
             Debug.Log(doorPrefab.GetComponentInParent<Transform>());
-            roomWalls[i].gameObject.SetActive(false);
+            
         }
         
+
+
+        
+
     }
 
     

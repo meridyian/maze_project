@@ -217,14 +217,14 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!4 &510058152 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7227649334569608653, guid: b5c83abb6d24f46d5bc4b3a0e3cc158e, type: 3}
+  m_PrefabInstance: {fileID: 4062682286635188876}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &643755131 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4062682287210721015, guid: b5c83abb6d24f46d5bc4b3a0e3cc158e, type: 3}
-  m_PrefabInstance: {fileID: 4062682286635188876}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &1015821123 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4062682287649960399, guid: b5c83abb6d24f46d5bc4b3a0e3cc158e, type: 3}
   m_PrefabInstance: {fileID: 4062682286635188876}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1111497401
@@ -866,6 +866,6 @@ PrefabInstance:
     - target: {fileID: 5113803838264967759, guid: 3011ecb87dbd8478fa3b362d72dd444f, type: 3}
       propertyPath: cameraPosition
       value: 
-      objectReference: {fileID: 1015821123}
+      objectReference: {fileID: 510058152}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3011ecb87dbd8478fa3b362d72dd444f, type: 3}
