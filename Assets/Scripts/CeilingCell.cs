@@ -1,10 +1,13 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class CeilingCell : MonoBehaviour
 {
     public IntVector2 positionCeiling;
+
     
     public void Initialize(int positX, int positZ, Transform t)
     {
@@ -14,4 +17,16 @@ public class CeilingCell : MonoBehaviour
         name = "Upper Cell" + positX + "," + positZ;
         transform.parent = t;
     }
+
+    
+
+    /*public void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            transform.GetComponent<SpherewwwaCollider>().isTrigger = true;
+        }
+        
+    }
+    */
 }

@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour
     public float gravity;
     public float jumpHeight;
 
+
     public LayerMask mask;
 
     private void Start()
@@ -32,6 +33,9 @@ public class PlayerController : MonoBehaviour
 
         Vector3 move = transform.right * horizontal + transform.forward * vertical;
         controller.Move(move * speed * Time.deltaTime);
+        
+        
+    
         
         #region Jump
 
@@ -55,5 +59,7 @@ public class PlayerController : MonoBehaviour
         
         #endregion Gravity
     }
+    
+   
 }
 

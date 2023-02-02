@@ -55,7 +55,6 @@ public class RoomObj : MonoBehaviour
             if(transform.name.StartsWith("Big Room"))
                 other.gameObject.GetComponentInChildren<Renderer>().material.color = Color.red;
             
-                
            
             
         }

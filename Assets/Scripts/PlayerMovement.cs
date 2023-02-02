@@ -14,7 +14,7 @@ public class PlayerMovement : MonoBehaviour
     // if the player is on the ground apply drag
 
     public Transform orientation;
-
+    public float range = 5f;
     float horizontalInput;
     float verticalInput;
 
@@ -32,6 +32,18 @@ public class PlayerMovement : MonoBehaviour
     private void Update()
     {
         MyInput();
+        
+        Vector3 direction = Vector3.up;
+        Ray theRay = new Ray(transform.position, transform.TransformDirection(direction * range));
+        Debug.DrawRay(transform.position, transform.TransformDirection(direction * range));
+
+        if (Physics.Raycast(theRay, out RaycastHit hit, range))
+        {
+            if (hit.collider.tag == "Ceiling")
+            {
+                Destroy(hit.transform.gameObject);
+            }
+        }
     }
     
 
