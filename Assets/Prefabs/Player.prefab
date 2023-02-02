@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4062682286389056695}
   - component: {fileID: 4062682286389056694}
   - component: {fileID: 4062682286389056693}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: PlayerObj
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92,7 +92,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4062682287210721015}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Orientation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -127,7 +127,8 @@ GameObject:
   - component: {fileID: 1902336193457840908}
   - component: {fileID: 1694335073335250284}
   - component: {fileID: 4884990002119840475}
-  m_Layer: 0
+  - component: {fileID: 4869567185227299038}
+  m_Layer: 9
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -208,6 +209,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d28c750237de843219bac4f631b8cc81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!135 &4869567185227299038
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4062682287443211232}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5008854
+  m_Center: {x: 0, y: 2.3410993, z: -0.0074698525}
 --- !u!1 &4099467422983825700
 GameObject:
   m_ObjectHideFlags: 0
@@ -220,7 +234,7 @@ GameObject:
   - component: {fileID: 3836504636589992617}
   - component: {fileID: 7022353140519996247}
   - component: {fileID: 7366936598021887719}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Camera
   m_TagString: Untagged
   m_Icon: {fileID: 0}

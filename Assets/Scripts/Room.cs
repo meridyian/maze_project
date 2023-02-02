@@ -81,13 +81,17 @@ public class Room : MonoBehaviour
         }
         
         yield return new WaitForSeconds(1);
-        
+
         for (int i = 0; i < points.Count; i++)
         {
             int randomIndex = Random.Range(0, roomPrefabs.Length);
-            Instantiate(roomPrefabs[randomIndex], points[i], Quaternion.identity);
-            Debug.Log(points[i]);
+            var go = Instantiate(roomPrefabs[randomIndex], points[i], Quaternion.identity);
+            go.name = roomPrefabs[randomIndex].name + " " +(i+1);
+
+            //Debug.Log(points[i]);
         }
+        
+        
         
     }
     

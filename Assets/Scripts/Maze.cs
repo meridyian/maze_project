@@ -18,6 +18,7 @@ public class Maze : MonoBehaviour
     public List<Vector3> deadEndList;
     public Room roomHolder;
     public GameObject player;
+    public CeilingCell ceilingPrefab;
     
     private MazeCell[,] cells;
 
@@ -39,7 +40,8 @@ public class Maze : MonoBehaviour
             for (int z = 0; z < size.z; z++)
             {
                 CreateCell(x, z);
-                
+                CreateCeilingCell(x, z);
+
             }
         }
 
@@ -207,6 +209,15 @@ public class Maze : MonoBehaviour
         return cellsList;
 
     }
+
+    public void CreateCeilingCell(int x , int z)
+    {
+        CeilingCell newceilingCell = Instantiate(ceilingPrefab) as CeilingCell;
+        newceilingCell.Initialize(x,z,transform);
+        newceilingCell.transform.localPosition = new Vector3(x - size.x * 0.5f + 0.5f, 2f, z - size.z * 0.5f + 0.5f);
+
+    }
+    
     
 
     

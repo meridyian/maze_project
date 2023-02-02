@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Transactions;
 using Unity.VisualScripting;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class RoomObj : MonoBehaviour
 {
@@ -12,8 +13,11 @@ public class RoomObj : MonoBehaviour
     public List<Transform> doorLocations;
     public GameObject doorPrefab;
 
+    
+
     private int spawnDelay = 3;
 
+    
 
 
 
@@ -40,18 +44,37 @@ public class RoomObj : MonoBehaviour
     public void OnCollisionEnter(Collision other)
     {
         // &&onBounds()
+
+
+        if (other.gameObject.CompareTag("Floor"))
+        {
+            Debug.Log( transform.name+ "collided with floor" + other.gameObject.transform.position);
+            
+            if(transform.name.StartsWith("Small Room"))
+                other.gameObject.GetComponentInChildren<Renderer>().material.color = Color.blue;
+            if(transform.name.StartsWith("Big Room"))
+                other.gameObject.GetComponentInChildren<Renderer>().material.color = Color.red;
+            
+                
+           
+            
+        }
         
         
         if (other.gameObject.CompareTag("Wall"))
         {
-
-            //playercanPass = false;a
+            
             other.gameObject.SetActive(false);
             transform.GetComponent<BoxCollider>().isTrigger = true;
+            
         }
+
         
         
-    } 
+        
+    }
+
+    
 
     public IEnumerator SpawnDoors()
     {

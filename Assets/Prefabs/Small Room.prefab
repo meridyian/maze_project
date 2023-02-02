@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8978160236754735963}
   - component: {fileID: 5626569723099898975}
   - component: {fileID: 8108673099320393820}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Up2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -142,7 +142,7 @@ GameObject:
   - component: {fileID: 5564967759303691733}
   - component: {fileID: 974685464662272759}
   - component: {fileID: 8731833332357761982}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Down2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -281,7 +281,7 @@ GameObject:
   - component: {fileID: 9185221777995774120}
   - component: {fileID: 1595738749282340353}
   - component: {fileID: 3955475676180907248}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Right2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -408,7 +408,7 @@ GameObject:
   - component: {fileID: 7487261207721435903}
   - component: {fileID: 6490552804690055490}
   - component: {fileID: 6446559639491143667}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Down1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -535,7 +535,7 @@ GameObject:
   - component: {fileID: 7487261208096949183}
   - component: {fileID: 2940666602271518768}
   - component: {fileID: 1003559937940222564}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Right1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -662,7 +662,7 @@ GameObject:
   - component: {fileID: 7487261208493146627}
   - component: {fileID: 6863748680521396986}
   - component: {fileID: 2073227753122871554}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Left1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -787,7 +787,7 @@ GameObject:
   - component: {fileID: 2765284317873196787}
   - component: {fileID: 5149517664512575126}
   - component: {fileID: 2641329338465516271}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Small Room
   m_TagString: Room
   m_Icon: {fileID: 0}
@@ -843,8 +843,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.93, y: 1, z: 1.93}
-  m_Center: {x: 0, y: 0, z: 1}
+  m_Size: {x: 1.93, y: 1.2877339, z: 1.9299998}
+  m_Center: {x: 0, y: -0.1115728, z: 1}
 --- !u!54 &2641329338465516271
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -875,7 +875,7 @@ GameObject:
   - component: {fileID: 7487261208988051772}
   - component: {fileID: 5446003455742214203}
   - component: {fileID: 4872845047723304581}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Up1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1002,7 +1002,7 @@ GameObject:
   - component: {fileID: 8040665499012140671}
   - component: {fileID: 3606372815721195836}
   - component: {fileID: 2916832598069470889}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Left2
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -7,6 +7,8 @@ TagManager:
   - Room
   - Wall
   - Door
+  - Floor
+  - Ceiling
   layers:
   - Default
   - TransparentFX

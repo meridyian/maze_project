@@ -9,10 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7173988776250496256}
-  - component: {fileID: 7173988776250496257}
+  - component: {fileID: 2002715440076158960}
   m_Layer: 8
-  m_Name: Maze Cell
-  m_TagString: Floor
+  m_Name: Upper Cell
+  m_TagString: Ceiling
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -33,7 +33,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7173988776250496257
+--- !u!114 &2002715440076158960
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -42,10 +42,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 7173988776250496258}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd5566b1ed8e2409f99106d1a74b71b5, type: 3}
+  m_Script: {fileID: 11500000, guid: 05dd5d984d906439e952afed82b74268, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  position:
+  positionCeiling:
     x: 0
     z: 0
 --- !u!1 &7173988776346679257
