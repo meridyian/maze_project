@@ -50,5 +50,5 @@ MonoBehaviour:
   distanceBetweenRooms: 6
   maze: {fileID: 4552829675547296550, guid: e91d38af152744237b0d8acf3c29c51b, type: 3}
   roomCount: 7
-  transformPntExtens: 3.5
+  transformPntExtens: 2.5
   x: []
