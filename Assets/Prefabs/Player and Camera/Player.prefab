@@ -160,12 +160,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4062682287443211232}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0986f45cb353341cc85634ac2da86fac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 3
+  room: {fileID: 1748227144377490132, guid: aa3ff4ff39b734d109184ebb68390e38, type: 3}
   orientation: {fileID: 4062682287210721015}
   range: 5
 --- !u!54 &1902336193457840908

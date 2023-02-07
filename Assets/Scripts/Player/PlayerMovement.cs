@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviour
     [Header("Movement")] 
     public float moveSpeed;
 
+    public Room room;
     
     // if the player is on the ground apply drag
 
@@ -51,7 +52,8 @@ public class PlayerMovement : MonoBehaviour
     {
         
         SpeedControl();
-        MovePlayer();
+        if(room.canMove == true)
+            MovePlayer();
         
     }
 
@@ -64,6 +66,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void MovePlayer()
     {
+        
         
         {
             moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;

@@ -15,6 +15,8 @@ public class Room : MonoBehaviour
     private MazeCell mazeCell;
     private float maxRoomWidth;
     public int roomCount;
+    public bool canMove ;
+
 
     
     private RoomWall roomWall;
@@ -25,6 +27,7 @@ public class Room : MonoBehaviour
     public void Awake()
     {
         SetSize();
+        canMove = false;
     }
 
     
@@ -90,9 +93,10 @@ public class Room : MonoBehaviour
 
             //Debug.Log(points[i]);
         }
-        
-        
-        
+
+        canMove = true;
+
+
     }
     
 

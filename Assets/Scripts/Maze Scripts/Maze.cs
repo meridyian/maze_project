@@ -41,8 +41,7 @@ public class Maze : MonoBehaviour
         }
 
         StartCoroutine(DFS());
-        // burda bir bekleme zamanı verip oda oluşturmayı burda çağırsan ya da DFS içine bool atıp 
-        // game managerda baksan 
+        
     }
 
     public void CreateCell(int x, int z)
@@ -109,7 +108,7 @@ public class Maze : MonoBehaviour
         MazeCell currentCell = cells[startingRandx,startingRandz];
         MazeCell startingCell = cells[startingRandx,startingRandz];
         Instantiate(player, startingCell.transform.position, Quaternion.identity);
-        
+        player.gameObject.GetComponent<PlayerMovement>().enabled = false;
         currentCell.Visited = true;
         cellsStack.Push(currentCell);
 

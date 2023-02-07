@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Transactions;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.PlayerLoop;
 using Random = UnityEngine.Random;
 
 public class RoomObj : MonoBehaviour
@@ -12,6 +13,7 @@ public class RoomObj : MonoBehaviour
     public List<Transform> roomWalls;
     public List<Transform> doorLocations;
     public GameObject doorPrefab;
+
 
     
 
@@ -84,13 +86,12 @@ public class RoomObj : MonoBehaviour
             roomWalls[i].gameObject.SetActive(false);
             Instantiate(doorPrefab, roomWalls[i].position ,roomWalls[i].rotation, GetComponent<Transform>());
             doorLocations.Add(doorPrefab.GetComponentInParent<Transform>());
-            Debug.Log(doorPrefab.GetComponentInParent<Transform>());
+            //Debug.Log(doorPrefab.GetComponentInParent<Transform>());
             
         }
         
 
 
-        
 
     }
 
