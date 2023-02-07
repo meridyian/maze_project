@@ -15,8 +15,8 @@ public class GameManager : MonoBehaviour
     public Room roomPrefab;
     private Room roomInstance;
 
-    private RoomWall roomWall; 
-    
+    private RoomWall roomWall;
+    public GameObject player;
     private bool spawnroom;
 
 
@@ -28,6 +28,11 @@ public class GameManager : MonoBehaviour
     }
 
 
+    private void Update()
+    {
+        if(mazeInstance.isFinished)
+            player.SetActive(true);
+    }
 
     public void BeginGame()
     {
@@ -35,8 +40,8 @@ public class GameManager : MonoBehaviour
         mazeInstance = Instantiate(mazePrefab) as Maze;
         mazeInstance.Generate();
         roomInstance = Instantiate(roomPrefab) as Room;
-
-
+        player = Instantiate(player, mazeInstance.startingCell.transform.position, Quaternion.identity);
+        player.SetActive(false);
     }
 
     

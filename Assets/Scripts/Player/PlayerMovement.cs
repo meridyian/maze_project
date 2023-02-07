@@ -9,8 +9,6 @@ public class PlayerMovement : MonoBehaviour
 {
     [Header("Movement")] 
     public float moveSpeed;
-
-    public Room room;
     
     // if the player is on the ground apply drag
 
@@ -52,8 +50,7 @@ public class PlayerMovement : MonoBehaviour
     {
         
         SpeedControl();
-        if(room.canMove == true)
-            MovePlayer();
+        MovePlayer();
         
     }
 

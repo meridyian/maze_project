@@ -832,6 +832,8 @@ MonoBehaviour:
   roomWalls: []
   doorLocations: []
   doorPrefab: {fileID: 5236304604253652344, guid: 7ebb0305efcd047e285cfed36faf82cd, type: 3}
+  isFinished: 0
+  gameManager: {fileID: 6024850201817001708, guid: e7d812c14552948a9a6e88acbf5b6fe6, type: 3}
 --- !u!65 &5149517664512575126
 BoxCollider:
   m_ObjectHideFlags: 0

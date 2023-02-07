@@ -6,8 +6,7 @@ using UnityEngine;
 
 public class DoorController : MonoBehaviour
 {
-
-
+    
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Door"))
@@ -15,7 +14,6 @@ public class DoorController : MonoBehaviour
             Debug.Log("Player just entered");
             other.transform.GetChild(0).position = new Vector3(other.transform.GetChild(0).position.x, 1.5f,
                 other.transform.GetChild(0).position.z);
-
         }
 
     }

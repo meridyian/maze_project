@@ -17,9 +17,12 @@ public class Maze : MonoBehaviour
     public float generationStepDelay;
     public List<Vector3> deadEndList;
     public Room roomHolder;
-    public GameObject player;
+    //public GameObject player;
     public CeilingCell ceilingPrefab;
     public GameObject ceilingHolder;
+    public MazeCell startingCell;
+    public bool isFinished;
+    
     private MazeCell[,] cells;
 
     
@@ -106,9 +109,9 @@ public class Maze : MonoBehaviour
         int startingRandz = Random.Range(0, size.z);
         
         MazeCell currentCell = cells[startingRandx,startingRandz];
-        MazeCell startingCell = cells[startingRandx,startingRandz];
-        Instantiate(player, startingCell.transform.position, Quaternion.identity);
-        player.gameObject.GetComponent<PlayerMovement>().enabled = false;
+        startingCell = cells[startingRandx,startingRandz];
+        //Instantiate(player, startingCell.transform.position, Quaternion.identity);
+        //player.gameObject.GetComponent<PlayerMovement>().enabled = false;
         currentCell.Visited = true;
         cellsStack.Push(currentCell);
 
@@ -168,6 +171,8 @@ public class Maze : MonoBehaviour
         Debug.Log("DFS is finished");
         
         StartCoroutine(roomHolder.SpawnRoom());
+        isFinished = true;
+
 
     }
 

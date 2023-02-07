@@ -48,8 +48,10 @@ MonoBehaviour:
   - {fileID: 2765284317873196787, guid: 21147330064ee474a8ef615b34b3239e, type: 3}
   - {fileID: 2765284317873196787, guid: faa490e88b86c4e59b274f8bb220b638, type: 3}
   distanceBetweenRooms: 6
+  gameManager: {fileID: 6024850201817001708, guid: e7d812c14552948a9a6e88acbf5b6fe6, type: 3}
   maze: {fileID: 4552829675547296550, guid: e91d38af152744237b0d8acf3c29c51b, type: 3}
   roomCount: 7
-  player: {fileID: 4062682287443211232, guid: b5c83abb6d24f46d5bc4b3a0e3cc158e, type: 3}
+  isFinished: 0
   transformPntExtens: 2.5
   x: []
+  createdRooms: []
