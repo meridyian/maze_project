@@ -171,6 +171,7 @@ public class Maze : MonoBehaviour
         Debug.Log("DFS is finished");
         
         StartCoroutine(roomHolder.SpawnRoom());
+        yield return new WaitForSeconds(2f);
         isFinished = true;
 
 

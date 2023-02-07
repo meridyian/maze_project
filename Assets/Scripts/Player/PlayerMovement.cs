@@ -17,6 +17,7 @@ public class PlayerMovement : MonoBehaviour
     float horizontalInput;
     float verticalInput;
 
+
     Vector3 moveDirection;
     Rigidbody rb;
 
@@ -63,8 +64,6 @@ public class PlayerMovement : MonoBehaviour
 
     public void MovePlayer()
     {
-        
-        
         {
             moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
             rb.velocity = new Vector3(moveDirection.x, 0f, moveDirection.z);

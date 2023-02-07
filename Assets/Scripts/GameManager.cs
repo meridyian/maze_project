@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -18,6 +19,7 @@ public class GameManager : MonoBehaviour
     private RoomWall roomWall;
     public GameObject player;
     private bool spawnroom;
+    public Text gameTimer;
 
 
     
@@ -30,8 +32,13 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if(mazeInstance.isFinished)
+        if (mazeInstance.isFinished)
+        {
             player.SetActive(true);
+            gameTimer.gameObject.GetComponent<GameTimer>().enabled = true;
+        }
+            
+            
     }
 
     public void BeginGame()
