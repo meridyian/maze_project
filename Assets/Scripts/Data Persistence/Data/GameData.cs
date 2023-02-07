@@ -9,6 +9,7 @@ public class GameData
 
     // you can keep time
     public string timerString;
+    public Vector3 playerPosition;
 
     
     // the values defined in thia constructor will be the default values
@@ -17,6 +18,7 @@ public class GameData
     public GameData()
     {
         this.timerString = " ";
+        this.playerPosition = Vector3.zero;
     }
 
 }

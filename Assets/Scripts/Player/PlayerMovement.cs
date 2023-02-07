@@ -5,7 +5,7 @@ using UnityEditor.U2D;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerMovement : MonoBehaviour, IDataPersistence
 {
     [Header("Movement")] 
     public float moveSpeed;
@@ -28,6 +28,17 @@ public class PlayerMovement : MonoBehaviour
         rb.freezeRotation = true;
         
     }
+
+    public void LoadData(GameData data)
+    {
+        this.transform.position = data.playerPosition;
+    }
+
+    public void SaveData(ref GameData data)
+    {
+        data.playerPosition = this.transform.position;
+    } 
+    
 
     private void Update()
     {
