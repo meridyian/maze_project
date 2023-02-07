@@ -8,7 +8,7 @@ public class GameData
 {
 
     // you can keep time
-    public int key;
+    public string timerString;
 
     
     // the values defined in thia constructor will be the default values
@@ -16,7 +16,7 @@ public class GameData
     
     public GameData()
     {
-        this.key = 0;
+        this.timerString = " ";
     }
 
 }
