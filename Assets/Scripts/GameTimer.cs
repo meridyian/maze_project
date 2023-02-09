@@ -3,22 +3,45 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Security.Cryptography.X509Certificates;
 using UnityEngine;
+using UnityEngine.PlayerLoop;
 using UnityEngine.UI;
 
-public class GameTimer : MonoBehaviour, IDataPersistence
+public class GameTimer : MonoBehaviour
 {
     public Text gameTimerText;
     private float gameTimer ;
-    private string timerString;
+    public string timerString;
 
     // Update is called once per frame
 
-    private void Start()
+    private void Awake()
     {
-        gameTimer = 0f;
+        LoadPlayer();
     }
 
-    public void LoadData(GameData data)
+
+    private void Start()
+    {
+        //gameTimer = 0f;
+        
+    }
+
+
+    public void SavePlayer()
+    {
+        //SaveSystem.SavePlayer(null, this);
+    }
+
+    public void LoadPlayer()
+    {
+        PlayerData data = SaveSystem.LoadPlayer();
+
+        timerString = data.timeString;
+    }
+
+    /*
+        public void LoadData(GameData data)
+    
     {
         this.timerString = data.timerString;
     }
@@ -27,7 +50,8 @@ public class GameTimer : MonoBehaviour, IDataPersistence
     {
         data.timerString = this.timerString;
     }
-
+    */
+     
     void Update()
     {   
         gameTimer += Time.deltaTime;
@@ -40,4 +64,10 @@ public class GameTimer : MonoBehaviour, IDataPersistence
 
         gameTimerText.text = timerString;
     }
+    
+    private void OnApplicationQuit()
+    {
+       // SavePlayer();
+    }
+
 }

@@ -5,7 +5,7 @@ using UnityEditor.U2D;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
 
-public class PlayerMovement : MonoBehaviour, IDataPersistence
+public class PlayerMovement : MonoBehaviour
 {
     [Header("Movement")] 
     public float moveSpeed;
@@ -16,20 +16,52 @@ public class PlayerMovement : MonoBehaviour, IDataPersistence
     public float range = 5f;
     float horizontalInput;
     float verticalInput;
+    private GameTimer gameTimer;
 
+    public string vec3;
 
+    public static PlayerMovement instance;
+    
     Vector3 moveDirection;
     Rigidbody rb;
+
+    private void Awake()
+    {
+        if (instance != null) return;
+        instance = this;
+        LoadPlayer();
+    }
 
 
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
-        
+        vec3 = "edd";
+        Debug.Log("XXXX");
+
+    }
+    public void SavePlayer()
+    {
+       // SaveSystem.SavePlayer(this, null);
     }
 
-    public void LoadData(GameData data)
+    public void LoadPlayer()
+    {
+        PlayerData data = SaveSystem.LoadPlayer();
+
+     //   vec3 = data.playerPos;
+/*
+        Vector3 position;
+        position.x = data.position[0];
+        position.y = data.position[1];
+        position.z = data.position[2];
+        transform.position = position;
+        //vec3 = position.ToString();
+*/
+    }
+
+    /*public void LoadData(GameData data)
     {
         this.transform.position = data.playerPosition;
     }
@@ -38,6 +70,8 @@ public class PlayerMovement : MonoBehaviour, IDataPersistence
     {
         data.playerPosition = this.transform.position;
     } 
+    */
+    
     
 
     private void Update()
@@ -95,8 +129,9 @@ public class PlayerMovement : MonoBehaviour, IDataPersistence
             rb.velocity = new Vector3(limitedVel.x, rb.velocity.y, limitedVel.z);
         }
     }
-    
-    
-    
-    
+
+    private void OnApplicationQuit()
+    {
+     //   SavePlayer();
+    }
 }

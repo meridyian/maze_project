@@ -21,14 +21,21 @@ public class GameManager : MonoBehaviour
     private bool spawnroom;
     public Text gameTimer;
 
+    public GameTimer gT;
 
     
     void Start()
     {
         BeginGame();
+        Debug.Log(Application.persistentDataPath);
         
     }
 
+    
+    public void Saver()
+    {
+        SaveSystem.SavePlayer(PlayerMovement.instance.vec3,gT.timerString);
+    }
 
     private void Update()
     {
@@ -51,7 +58,8 @@ public class GameManager : MonoBehaviour
         player.SetActive(false);
     }
 
-    
-    
-
+    private void OnApplicationQuit()
+    {
+        Saver();
+    }
 }
