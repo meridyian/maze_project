@@ -8,7 +8,7 @@ using UnityEngine.PlayerLoop;
 
 public class SaveSystem 
 {
-    public static void SavePlayer(string playerMovement, string gameTimer)
+    public static void SavePlayer(string playerMovement, float gameTimer)
     {
         //BinaryFormatter formatter = new BinaryFormatter();
 

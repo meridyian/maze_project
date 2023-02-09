@@ -46,6 +46,8 @@ public class PlayerMovement : MonoBehaviour
         PlayerData data = SaveSystem.LoadPlayer();
 
         vec3 = data.playerPos;
+        
+        //transform.position = 
 /*
         Vector3 position;
         position.x = data.position[0];
@@ -80,8 +82,7 @@ public class PlayerMovement : MonoBehaviour
     
 
     private void FixedUpdate()
-    {
-        
+    { 
         SpeedControl();
         MovePlayer();
         vec3 = transform.position.ToString();

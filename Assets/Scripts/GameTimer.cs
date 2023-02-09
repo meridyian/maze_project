@@ -10,7 +10,7 @@ public class GameTimer : MonoBehaviour
 {
     public Text gameTimerText;
     private float gameTimer ;
-    public string timerString;
+    public float timerString;
 
     
 
@@ -26,21 +26,26 @@ public class GameTimer : MonoBehaviour
         PlayerData data = SaveSystem.LoadPlayer();
 
         timerString = data.timeString;
+        Debug.Log(data.timeString);
+        gameTimer = timerString;
     }
 
     
      
     void Update()
-    {   
+    {
         gameTimer += Time.deltaTime;
-
+        timerString = (int)gameTimer;
+        
+        
         int seconds = (int)(gameTimer % 60);
         int minutes = (int)(gameTimer / 60) % 60;
         int hours = (int)(gameTimer / 3600) % 24;
 
-        timerString =string.Format("{0:0}:{1:00}:{2:00}", hours, minutes, seconds);
+       
+        gameTimerText.text = string.Format("{0:0}:{1:00}:{2:00}", hours, minutes, seconds);
 
-        gameTimerText.text = timerString;
+        
     }
     
 

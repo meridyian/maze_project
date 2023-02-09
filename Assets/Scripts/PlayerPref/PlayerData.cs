@@ -7,10 +7,10 @@ using UnityEngine.PlayerLoop;
 [System.Serializable]
 public class PlayerData
 {
-    public string timeString;
+    public float timeString;
     public string playerPos;
 
-    public PlayerData(string player, string gameTimer)
+    public PlayerData(string player, float gameTimer)
     {
         timeString = gameTimer;
         playerPos = player;
