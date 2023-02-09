@@ -37,20 +37,15 @@ public class PlayerMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
-        vec3 = "edd";
-        Debug.Log("XXXX");
-
+        
     }
-    public void SavePlayer()
-    {
-       // SaveSystem.SavePlayer(this, null);
-    }
+    
 
     public void LoadPlayer()
     {
         PlayerData data = SaveSystem.LoadPlayer();
 
-     //   vec3 = data.playerPos;
+        vec3 = data.playerPos;
 /*
         Vector3 position;
         position.x = data.position[0];
@@ -61,16 +56,7 @@ public class PlayerMovement : MonoBehaviour
 */
     }
 
-    /*public void LoadData(GameData data)
-    {
-        this.transform.position = data.playerPosition;
-    }
-
-    public void SaveData(ref GameData data)
-    {
-        data.playerPosition = this.transform.position;
-    } 
-    */
+    
     
     
 
@@ -88,6 +74,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 Destroy(hit.transform.gameObject);
             }
+            
         }
     }
     
@@ -97,7 +84,7 @@ public class PlayerMovement : MonoBehaviour
         
         SpeedControl();
         MovePlayer();
-        
+        vec3 = transform.position.ToString();
     }
 
     private void MyInput()
@@ -112,7 +99,7 @@ public class PlayerMovement : MonoBehaviour
         {
             moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
             rb.velocity = new Vector3(moveDirection.x, 0f, moveDirection.z);
-            //rb.AddForce(moveDirection.normalized * moveSpeed , ForceMode.Force);
+            
         }
         
         
@@ -129,9 +116,5 @@ public class PlayerMovement : MonoBehaviour
             rb.velocity = new Vector3(limitedVel.x, rb.velocity.y, limitedVel.z);
         }
     }
-
-    private void OnApplicationQuit()
-    {
-     //   SavePlayer();
-    }
+    
 }

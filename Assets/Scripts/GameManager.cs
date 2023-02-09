@@ -27,8 +27,6 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         BeginGame();
-        Debug.Log(Application.persistentDataPath);
-        
     }
 
     

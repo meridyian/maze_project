@@ -12,25 +12,14 @@ public class GameTimer : MonoBehaviour
     private float gameTimer ;
     public string timerString;
 
-    // Update is called once per frame
+    
 
     private void Awake()
     {
         LoadPlayer();
     }
 
-
-    private void Start()
-    {
-        //gameTimer = 0f;
-        
-    }
-
-
-    public void SavePlayer()
-    {
-        //SaveSystem.SavePlayer(null, this);
-    }
+    
 
     public void LoadPlayer()
     {
@@ -39,18 +28,7 @@ public class GameTimer : MonoBehaviour
         timerString = data.timeString;
     }
 
-    /*
-        public void LoadData(GameData data)
     
-    {
-        this.timerString = data.timerString;
-    }
-
-    public void SaveData(ref GameData data)
-    {
-        data.timerString = this.timerString;
-    }
-    */
      
     void Update()
     {   
@@ -65,9 +43,5 @@ public class GameTimer : MonoBehaviour
         gameTimerText.text = timerString;
     }
     
-    private void OnApplicationQuit()
-    {
-       // SavePlayer();
-    }
 
 }
