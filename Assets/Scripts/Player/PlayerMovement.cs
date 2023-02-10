@@ -47,7 +47,9 @@ public class PlayerMovement : MonoBehaviour
 
         vec3 = data.playerPos;
         
-        //transform.position = 
+        string[] vec3arr = vec3.Split(new char[] { ',',' ',')', '('});
+        Debug.Log((vec3arr));
+        //transform.position = new Vector3(float.Parse(vec3arr[0]),float.Parse(vec3arr[1]),float.Parse(vec3arr[2]));
 /*
         Vector3 position;
         position.x = data.position[0];

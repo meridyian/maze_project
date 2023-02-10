@@ -9,7 +9,7 @@ using UnityEngine.UI;
 public class GameTimer : MonoBehaviour
 {
     public Text gameTimerText;
-    private float gameTimer ;
+    public float gameTimer ;
     public float timerString;
 
     

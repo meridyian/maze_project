@@ -12,7 +12,9 @@ public class PlayerData
 
     public PlayerData(string player, float gameTimer)
     {
+        
         timeString = gameTimer;
         playerPos = player;
+
     }
 }
