@@ -9,7 +9,7 @@ using UnityEngine.UI;
 public class GameTimer : MonoBehaviour
 {
     public Text gameTimerText;
-    public float gameTimer ;
+    public float gameTimer =0f;
     public float timerString;
 
     
@@ -26,7 +26,6 @@ public class GameTimer : MonoBehaviour
         PlayerData data = SaveSystem.LoadPlayer();
 
         timerString = data.timeString;
-        Debug.Log(data.timeString);
         gameTimer = timerString;
     }
 
@@ -43,7 +42,7 @@ public class GameTimer : MonoBehaviour
         int hours = (int)(gameTimer / 3600) % 24;
 
        
-        gameTimerText.text = string.Format("{0:0}:{1:00}:{2:00}", hours, minutes, seconds);
+        gameTimerText.text = "Time: " + string.Format("{0:0}:{1:00}:{2:00}", hours, minutes, seconds);
 
         
     }

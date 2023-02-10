@@ -8,6 +8,8 @@ using UnityEngine.PlayerLoop;
 
 public class SaveSystem 
 {
+    
+    
     public static void SavePlayer(string playerMovement, float gameTimer)
     {
         //BinaryFormatter formatter = new BinaryFormatter();
@@ -31,8 +33,11 @@ public class SaveSystem
     public static PlayerData LoadPlayer()
     {
         string path = Application.persistentDataPath + "/JSONData.text";
+        
+        
         if (File.Exists(path))
         {
+            TestManagerScript.testinstance.isThereData = true;
             //Load the game data
             StreamReader sr = new StreamReader(Application.persistentDataPath + "/JSONData.text");
             //BinaryFormatter formatter = new BinaryFormatter();
@@ -45,6 +50,7 @@ public class SaveSystem
         }
         else
         {
+            TestManagerScript.testinstance.isThereData = false;
             Debug.LogError("Save file not found in" + path);
             return null;
         }

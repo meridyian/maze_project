@@ -1,6 +1,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Data.Common;
+using Unity.VisualScripting;
 using UnityEditor.U2D;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
@@ -17,8 +19,9 @@ public class PlayerMovement : MonoBehaviour
     float horizontalInput;
     float verticalInput;
     private GameTimer gameTimer;
-
+    
     public string vec3;
+    public Vector3 playerReload;
 
     public static PlayerMovement instance;
     
@@ -29,6 +32,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (instance != null) return;
         instance = this;
+        vec3 = null;
         LoadPlayer();
     }
 
@@ -44,12 +48,18 @@ public class PlayerMovement : MonoBehaviour
     public void LoadPlayer()
     {
         PlayerData data = SaveSystem.LoadPlayer();
-
-        vec3 = data.playerPos;
+        if (data == null)
+        {
+            return; 
+        }
         
-        string[] vec3arr = vec3.Split(new char[] { ',',' ',')', '('});
-        Debug.Log((vec3arr));
-        //transform.position = new Vector3(float.Parse(vec3arr[0]),float.Parse(vec3arr[1]),float.Parse(vec3arr[2]));
+        vec3 = data.playerPos;
+        string[] vec3arr = vec3.Split(new char[] { ',',' ',')', '(','"'});
+        playerReload = new Vector3(float.Parse(vec3arr[1]), float.Parse(vec3arr[3]), float.Parse(vec3arr[5]));
+        transform.position = playerReload;
+
+
+
 /*
         Vector3 position;
         position.x = data.position[0];
@@ -76,7 +86,7 @@ public class PlayerMovement : MonoBehaviour
         {
             if (hit.collider.tag == "Ceiling")
             {
-                Destroy(hit.transform.gameObject);
+                hit.transform.gameObject.SetActive(false);
             }
             
         }
@@ -87,7 +97,11 @@ public class PlayerMovement : MonoBehaviour
     { 
         SpeedControl();
         MovePlayer();
+        
         vec3 = transform.position.ToString();
+        //playerReload = 
+        
+        
     }
 
     private void MyInput()

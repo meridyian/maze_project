@@ -2081,8 +2081,9 @@ MonoBehaviour:
   maze: {fileID: 2130907099}
   canvas: {fileID: 1116843907}
   panel: {fileID: 1116843908}
---- !u!4 &882468589
-Transform:
+  isThereData: 0
+--- !u!224 &882468589
+RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -2096,6 +2097,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &1116843906
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2105,7 +2111,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4609655937826191016, guid: 88b1ef32638274c5d939828efbfcadf9, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4609655937870143926, guid: 88b1ef32638274c5d939828efbfcadf9, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -2165,7 +2171,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4609655939166260439, guid: 88b1ef32638274c5d939828efbfcadf9, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8836557065939136752, guid: 88b1ef32638274c5d939828efbfcadf9, type: 3}
       propertyPath: m_Pivot.x
@@ -2271,8 +2277,20 @@ PrefabInstance:
       propertyPath: m_ReferenceResolution.y
       value: 1080
       objectReference: {fileID: 0}
+    - target: {fileID: 8836557066396442418, guid: 88b1ef32638274c5d939828efbfcadf9, type: 3}
+      propertyPath: m_Text
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8836557066396442419, guid: 88b1ef32638274c5d939828efbfcadf9, type: 3}
+      propertyPath: gameTimer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8836557066396442419, guid: 88b1ef32638274c5d939828efbfcadf9, type: 3}
       propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8836557066396442419, guid: 88b1ef32638274c5d939828efbfcadf9, type: 3}
+      propertyPath: timerString
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

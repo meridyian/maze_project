@@ -15,46 +15,64 @@ public class TestManagerScript : MonoBehaviour
     public Maze maze;
     public Canvas canvas;
     public GameObject panel;
-    
-    
+    public bool isThereData = false;
+    public static TestManagerScript testinstance;
     
     
     // PS: materyalleri ayarlayabilir misin bak
+    
+    private void Awake()
+    {
+        if (testinstance != null) return;
+        testinstance = this;
+        
+        
+    }
 
     void Start()
     {
-        panel.SetActive(true);
         
-        //Instantiate(player, Vector3.zero, Quaternion.identity);
+        if (!isThereData)
+        {
+            panel.SetActive(false);
+            Instantiate(player,maze.startingCell.transform.position, Quaternion.identity);
+            gt.enabled = true;
+        
+            // start at time0
+            //gt.gameTimer = 0;
+            //player.transform.position = maze.startingCell.transform.position;
+        }
+
+        else
+        {
+            
+            panel.SetActive(true);
+        }
+
     }
 
-    public void RestartGame()
+    /*public void RestartGame()
     {
 
         panel.SetActive(false);
         // spawn at starting cell as if it is a new gamexs
-        Instantiate(player,maze.startingCell.transform.position, Quaternion.identity);
-        gt.gameObject.GetComponent<GameTimer>().enabled = true;
-        // start at time0
-        gt.gameTimer = 0;
+        //PlayerMovement.instance.vec3 = maze.startingCell.transform.position.ToString();
+        
+        
     }
+    */
 
     public void ReloadGame()
     {
         panel.SetActive(false);
-        /*Vector3 newpos;
-        newpos.x = PlayerMovement.instance.vec3[0];
-        newpos.y = PlayerMovement.instance.vec3[1];
-        newpos.z = PlayerMovement.instance.vec3[2];
-        */
-        Instantiate(player,player.transform.position, Quaternion.identity);
+        Instantiate(player,player.GetComponent<PlayerMovement>().playerReload, Quaternion.identity);
         gt.gameObject.GetComponent<GameTimer>().enabled = true;
         
     }
 
     public void GameSaver()
     {
-        SaveSystem.SavePlayer(PlayerMovement.instance.vec3, gt.timerString);
+        SaveSystem.SavePlayer(PlayerMovement.instance.vec3 , gt.timerString);
     }
 
     private void OnApplicationQuit()
