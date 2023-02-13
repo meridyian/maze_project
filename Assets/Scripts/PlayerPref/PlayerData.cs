@@ -9,10 +9,11 @@ public class PlayerData
 {
     public float timeString;
     public string playerPos;
+    public List<GameObject> ceilings;
 
-    public PlayerData(string player, float gameTimer)
+    public PlayerData(string player, float gameTimer, List<GameObject> removed)
     {
-        
+        ceilings = removed;
         timeString = gameTimer;
         playerPos = player;
 

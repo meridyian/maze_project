@@ -32,7 +32,7 @@ public class GameManager : MonoBehaviour
     
     public void Saver()
     {
-        SaveSystem.SavePlayer(PlayerMovement.instance.vec3,gT.timerString);
+        SaveSystem.SavePlayer(PlayerMovement.instance.vec3,gT.timerString, PlayerMovement.instance.removedceilings);
     }
 
     private void Update()

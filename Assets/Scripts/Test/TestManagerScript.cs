@@ -67,12 +67,13 @@ public class TestManagerScript : MonoBehaviour
         panel.SetActive(false);
         Instantiate(player,player.GetComponent<PlayerMovement>().playerReload, Quaternion.identity);
         gt.gameObject.GetComponent<GameTimer>().enabled = true;
-        
+
+
     }
 
     public void GameSaver()
     {
-        SaveSystem.SavePlayer(PlayerMovement.instance.vec3 , gt.timerString);
+        SaveSystem.SavePlayer(PlayerMovement.instance.vec3 , gt.timerString, PlayerMovement.instance.removedceilings);
     }
 
     private void OnApplicationQuit()

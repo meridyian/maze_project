@@ -46,7 +46,6 @@ public class Room : MonoBehaviour
     public IEnumerator SpawnRoom()
     {
         
-        
         for (int i = 0; i < roomCount; i++)
         {
             

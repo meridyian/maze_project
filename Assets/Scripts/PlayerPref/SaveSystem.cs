@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.IO.Enumeration;
 using System.Runtime.Serialization.Formatters.Binary;
@@ -10,7 +11,7 @@ public class SaveSystem
 {
     
     
-    public static void SavePlayer(string playerMovement, float gameTimer)
+    public static void SavePlayer(string playerMovement, float gameTimer, List<GameObject> removed)
     {
         //BinaryFormatter formatter = new BinaryFormatter();
 
@@ -18,7 +19,7 @@ public class SaveSystem
 
         //FileStream stream = new FileStream(path, FileMode.Create);
 
-        PlayerData data = new PlayerData(playerMovement, gameTimer);
+        PlayerData data = new PlayerData(playerMovement, gameTimer, removed);
 
         string JsonString = JsonUtility.ToJson(data);
         StreamWriter sw = new StreamWriter(Application.persistentDataPath + "/JSONData.text");

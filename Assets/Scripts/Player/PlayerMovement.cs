@@ -6,6 +6,7 @@ using Unity.VisualScripting;
 using UnityEditor.U2D;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
+using UnityEngine.UIElements;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -24,7 +25,9 @@ public class PlayerMovement : MonoBehaviour
     public Vector3 playerReload;
 
     public static PlayerMovement instance;
-    
+    public List<GameObject> removedceilings = new List<GameObject>();
+
+
     Vector3 moveDirection;
     Rigidbody rb;
 
@@ -42,6 +45,8 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
         
+        
+        
     }
     
 
@@ -57,24 +62,15 @@ public class PlayerMovement : MonoBehaviour
         string[] vec3arr = vec3.Split(new char[] { ',',' ',')', '(','"'});
         playerReload = new Vector3(float.Parse(vec3arr[1]), float.Parse(vec3arr[3]), float.Parse(vec3arr[5]));
         transform.position = playerReload;
+        
+        removedceilings = data.ceilings;
 
 
-
-/*
-        Vector3 position;
-        position.x = data.position[0];
-        position.y = data.position[1];
-        position.z = data.position[2];
-        transform.position = position;
-        //vec3 = position.ToString();
-*/
     }
 
     
-    
-    
 
-    private void Update()
+    public void Update()
     {
         MyInput();
         
@@ -86,10 +82,20 @@ public class PlayerMovement : MonoBehaviour
         {
             if (hit.collider.tag == "Ceiling")
             {
+
+                removedceilings.Add(hit.transform.gameObject);
                 hit.transform.gameObject.SetActive(false);
+                
             }
             
         }
+          
+
+        /*foreach (GameObject removedcells in removedceilings)
+        {
+            removedcells.gameObject.transform.position.ToString();
+        }
+        */
     }
     
 
@@ -99,7 +105,7 @@ public class PlayerMovement : MonoBehaviour
         MovePlayer();
         
         vec3 = transform.position.ToString();
-        //playerReload = 
+        
         
         
     }
