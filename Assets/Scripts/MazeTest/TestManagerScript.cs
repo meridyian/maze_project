@@ -15,6 +15,7 @@ public class TestManagerScript : MonoBehaviour
     public Maze maze;
     public Canvas canvas;
     public GameObject panel;
+    
     public bool isThereData = false;
     public static TestManagerScript testinstance;
 
@@ -24,7 +25,7 @@ public class TestManagerScript : MonoBehaviour
     private void Awake()
     {
         if (testinstance != null) return;
-        player.transform.position = maze.startingCell.transform.position;
+        //player.transform.position = maze.startingCell.transform.position;
         testinstance = this;
         
         
@@ -56,9 +57,11 @@ public class TestManagerScript : MonoBehaviour
     {
 
         panel.SetActive(false);
+        Instantiate(player,maze.startingCell.transform.position, Quaternion.identity);
+        gt.gameTimer = 0;
+        gt.enabled = true;
         // spawn at starting cell as if it is a new game
-        TestPlayerMovement.instance.vec3 = maze.startingCell.transform.position.ToString();
-        
+        //TestPlayerMovement.instance.vec3 = maze.startingCell.transform.position.ToString();
 
 
     }
@@ -67,6 +70,7 @@ public class TestManagerScript : MonoBehaviour
     public void ReloadGame()
     {
         panel.SetActive(false);
+        TestPlayerMovement.instance.LoadPlayer();
         Instantiate(player,player.GetComponent<TestPlayerMovement>().playerReload, Quaternion.identity);
         gt.enabled = true;
         // setactive false for each element in removed list
@@ -83,8 +87,11 @@ public class TestManagerScript : MonoBehaviour
         SaveSystem.SavePlayer(TestPlayerMovement.instance.vec3 , gt.timerString, TestPlayerMovement.instance.removedceilings);
     }
 
+    
+
     private void OnApplicationQuit()
     {
         GameSaver();
     }
+    
 }

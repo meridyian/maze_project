@@ -9,6 +9,7 @@ TagManager:
   - Door
   - Floor
   - Ceiling
+  - Agent
   layers:
   - Default
   - TransparentFX

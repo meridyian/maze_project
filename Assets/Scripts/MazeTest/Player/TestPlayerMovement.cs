@@ -21,10 +21,11 @@ public class TestPlayerMovement : MonoBehaviour
 
     public static TestPlayerMovement instance;
     public List<string> removedceilings = new List<string>();
-
-
+    
     Vector3 moveDirection;
     Rigidbody rb;
+
+    public bool playerIsThere;
     
     
     private void Awake()
@@ -32,7 +33,7 @@ public class TestPlayerMovement : MonoBehaviour
         if (instance != null) return;
         instance = this;
         //vec3 = String.Empty;
-        LoadPlayer();
+       
     }
 
 
