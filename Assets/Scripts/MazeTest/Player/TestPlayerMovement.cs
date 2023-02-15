@@ -59,8 +59,11 @@ public class TestPlayerMovement : MonoBehaviour
             string[] vec3arr = vec3.Split(new char[] { ',',' ',')', '(','"'});
             playerReload = new Vector3(float.Parse(vec3arr[1]), float.Parse(vec3arr[3]), float.Parse(vec3arr[5]));
             transform.position = playerReload;
-        
             removedceilings = data.ceilings;
+            foreach (var ceilings in removedceilings)
+            {
+                TestManagerScript.testinstance.maze.transform.GetChild(0).Find(ceilings).gameObject.SetActive(false);
+            }
 
         }
         

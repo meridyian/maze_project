@@ -72,11 +72,9 @@ public class TestManagerScript : MonoBehaviour
         GameObject reloadplayer = Instantiate(player,player.GetComponent<TestPlayerMovement>().playerReload, Quaternion.identity);
         reloadplayer.GetComponent<TestPlayerMovement>().playerIsThere = true;
         gt.enabled = true;
+       
         // setactive false for each element in removed list
-        foreach (var ceilings in TestPlayerMovement.instance.removedceilings)
-        {
-            maze.transform.GetChild(0).Find(ceilings).gameObject.SetActive(false);
-        }
+        
 
 
     }
