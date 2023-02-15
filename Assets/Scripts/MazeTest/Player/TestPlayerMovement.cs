@@ -41,24 +41,28 @@ public class TestPlayerMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
+        LoadPlayer();
         
         
         
     }
     public void LoadPlayer()
     {
-        PlayerData data = SaveSystem.LoadPlayer();
-        if (data == null)
+        if (playerIsThere)
         {
-            return; 
+            PlayerData data = SaveSystem.LoadPlayer();
+            if (data == null)
+            {
+                return; 
+            }
+            vec3 = data.playerPos;
+            string[] vec3arr = vec3.Split(new char[] { ',',' ',')', '(','"'});
+            playerReload = new Vector3(float.Parse(vec3arr[1]), float.Parse(vec3arr[3]), float.Parse(vec3arr[5]));
+            transform.position = playerReload;
+        
+            removedceilings = data.ceilings;
+
         }
-        
-        vec3 = data.playerPos;
-        string[] vec3arr = vec3.Split(new char[] { ',',' ',')', '(','"'});
-        playerReload = new Vector3(float.Parse(vec3arr[1]), float.Parse(vec3arr[3]), float.Parse(vec3arr[5]));
-        transform.position = playerReload;
-        
-        removedceilings = data.ceilings;
         
 
 

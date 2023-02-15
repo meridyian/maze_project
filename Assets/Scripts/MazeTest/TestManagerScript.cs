@@ -25,7 +25,6 @@ public class TestManagerScript : MonoBehaviour
     private void Awake()
     {
         if (testinstance != null) return;
-        //player.transform.position = maze.startingCell.transform.position;
         testinstance = this;
         
         
@@ -55,9 +54,9 @@ public class TestManagerScript : MonoBehaviour
 
     public void RestartGame()
     {
-
         panel.SetActive(false);
-        Instantiate(player,maze.startingCell.transform.position, Quaternion.identity);
+        GameObject instplayer = Instantiate(player,maze.startingCell.transform.position, Quaternion.identity);
+        instplayer.GetComponent<TestPlayerMovement>().playerIsThere = false;
         gt.gameTimer = 0;
         gt.enabled = true;
         // spawn at starting cell as if it is a new game
@@ -70,15 +69,15 @@ public class TestManagerScript : MonoBehaviour
     public void ReloadGame()
     {
         panel.SetActive(false);
-        TestPlayerMovement.instance.LoadPlayer();
-        Instantiate(player,player.GetComponent<TestPlayerMovement>().playerReload, Quaternion.identity);
+        GameObject reloadplayer = Instantiate(player,player.GetComponent<TestPlayerMovement>().playerReload, Quaternion.identity);
+        reloadplayer.GetComponent<TestPlayerMovement>().playerIsThere = true;
         gt.enabled = true;
         // setactive false for each element in removed list
         foreach (var ceilings in TestPlayerMovement.instance.removedceilings)
         {
             maze.transform.GetChild(0).Find(ceilings).gameObject.SetActive(false);
         }
-        //maze.transform.Find()
+
 
     }
 

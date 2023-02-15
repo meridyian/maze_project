@@ -7,7 +7,7 @@ using UnityEngine.UIElements;
 
 public class AgentScript : MonoBehaviour
 {
-    private NavMeshAgent navMeshAgent;
+    public NavMeshAgent navMeshAgent;
     public LayerMask Player;
     public float sightRange;
     public bool playerInSightRange;
@@ -16,7 +16,7 @@ public class AgentScript : MonoBehaviour
     public void Awake()
     {
         playerInSightRange = false;
-        navMeshAgent = GetComponent<NavMeshAgent>();
+        
     }
     
 
