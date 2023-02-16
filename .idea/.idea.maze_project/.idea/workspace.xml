@@ -8,7 +8,6 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Assets/AgentScript.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/MazeGenerator/Player/PlayerMovement.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -72,6 +71,7 @@
       <workItem from="1675696255486" duration="44942000" />
       <workItem from="1676362277561" duration="948000" />
       <workItem from="1676363275727" duration="9069000" />
+      <workItem from="1676544199509" duration="1441000" />
     </task>
     <servers />
   </component>

@@ -16,6 +16,7 @@ public class TestManagerScript : MonoBehaviour
     public Canvas canvas;
     public GameObject panel;
     
+    // check if this is the first play
     public bool isThereData = false;
     public static TestManagerScript testinstance;
 
@@ -24,6 +25,8 @@ public class TestManagerScript : MonoBehaviour
 
     private void Awake()
     {
+        // so that you can handle it in savedata and playerscripts
+        
         if (testinstance != null) return;
         testinstance = this;
         
@@ -32,17 +35,18 @@ public class TestManagerScript : MonoBehaviour
 
     void Start()
     {
-        
+        // check if it is your first game
         if (!isThereData)
         {
             panel.SetActive(false);
             Instantiate(player,maze.startingCell.transform.position, Quaternion.identity);
             gt.enabled = true;
-        
-            //start at time0
+            
             
         }
 
+        // if this is the first game decide what to do on panel
+        
         else
         {
             
@@ -54,31 +58,32 @@ public class TestManagerScript : MonoBehaviour
 
     public void RestartGame()
     {
+        // start a completely new game spawned at starting cell, control LoadPlayer method
+        
         panel.SetActive(false);
         GameObject instplayer = Instantiate(player,maze.startingCell.transform.position, Quaternion.identity);
+        //  start a new game dont call LoadGame
         instplayer.GetComponent<TestPlayerMovement>().playerIsThere = false;
         gt.gameTimer = 0;
         gt.enabled = true;
-        // spawn at starting cell as if it is a new game
-        //TestPlayerMovement.instance.vec3 = maze.startingCell.transform.position.ToString();
-
+        
 
     }
     
 
     public void ReloadGame()
     {
+        // if reload button is pressed instantiate player at where you left and load last game time and removed ceilings
         panel.SetActive(false);
         GameObject reloadplayer = Instantiate(player,player.GetComponent<TestPlayerMovement>().playerReload, Quaternion.identity);
         reloadplayer.GetComponent<TestPlayerMovement>().playerIsThere = true;
         gt.enabled = true;
        
-        // setactive false for each element in removed list
         
-
-
     }
 
+    // save the game
+    
     public void GameSaver()
     {
         SaveSystem.SavePlayer(TestPlayerMovement.instance.vec3 , gt.timerString, TestPlayerMovement.instance.removedceilings);

@@ -5,13 +5,16 @@ using UnityEngine.UI;
 
 public class TestTimer : MonoBehaviour
 {
+    
+    // timer is started as disabled, will be enabled via test manager
+    
     public Text gameTimerText;
     public float gameTimer =0f;
     public float timerString;
     
     private void Awake()
     {
-        // since you call loadplayer on awake timer will not start from 0
+        // since you call load player on awake timer will not start from 0
         LoadPlayer();
     }
     

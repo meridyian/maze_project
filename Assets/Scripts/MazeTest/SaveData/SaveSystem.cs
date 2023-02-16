@@ -10,6 +10,7 @@ using UnityEngine.PlayerLoop;
 public class SaveSystem 
 {
     
+    // to save player position, time and minimap
     
     public static void SavePlayer(string playerMovement, float gameTimer, List<string> removed)
     {
@@ -23,7 +24,7 @@ public class SaveSystem
         
     }
 
-    
+    // if there is a game already played, load the saved data 
 
     public static PlayerData LoadPlayer()
     {

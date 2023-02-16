@@ -11,6 +11,7 @@ public class PlayerData
     public string playerPos;
     public List<string> ceilings;
 
+    // save player position, time and minimap
     public PlayerData(string player, float gameTimer, List<string> removed)
     {
         ceilings = removed;

@@ -7,8 +7,11 @@ using UnityEngine.UIElements;
 
 public class AgentScript : MonoBehaviour
 {
+    // navmesh components
     public NavMeshAgent navMeshAgent;
     public LayerMask Player;
+    
+    // check if player is in defined range
     public float sightRange;
     public bool playerInSightRange;
     
@@ -16,7 +19,6 @@ public class AgentScript : MonoBehaviour
     public void Awake()
     {
         playerInSightRange = false;
-        
     }
     
 
@@ -30,6 +32,7 @@ public class AgentScript : MonoBehaviour
 
     public void FollowPlayer()
     {
+        // since there is no player spawned on start, reach to singleton
         navMeshAgent.SetDestination(TestPlayerMovement.instance.gameObject.transform.position);
         
     }
