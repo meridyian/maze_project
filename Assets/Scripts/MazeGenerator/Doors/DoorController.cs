@@ -7,7 +7,7 @@ using UnityEngine;
 public class DoorController : MonoBehaviour
 {
     // to open and close the door when player enters to the room
-    // move the doors up
+    // move the doors up, collider should be seperated from object
     // will be assigned to player
     
     private void OnTriggerEnter(Collider other)

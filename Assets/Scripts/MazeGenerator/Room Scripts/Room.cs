@@ -70,8 +70,8 @@ public class Room : MonoBehaviour
 
             for (int j = 0; j < points.Count; j++)
             {
-                // distance between points should always be bigger than hypotenus of the room 
-                // 
+                // distance between points should always be bigger than hypotenuse of the room 
+
                 
                 if ((point - points[j]).sqrMagnitude > distanceBetweenRooms * distanceBetweenRooms)
                 {
