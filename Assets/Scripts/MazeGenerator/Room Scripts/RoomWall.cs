@@ -11,7 +11,6 @@ public class RoomWall : MonoBehaviour
     
     public void OnCollisionEnter(Collision other)
     {
-        Debug.Log(other.gameObject.name + "a");
         
         if (other.gameObject.CompareTag("Wall"))
         {

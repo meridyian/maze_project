@@ -12,9 +12,9 @@ public class SaveSystem
     
     // to save player position, time and minimap
     
-    public static void SavePlayer(string playerMovement, float gameTimer, List<string> removed)
+    public static void SaveGame(string playerMovement, float gameTimer, List<string> removed, string agent)
     {
-        PlayerData data = new PlayerData(playerMovement, gameTimer, removed);
+        PlayerData data = new PlayerData(playerMovement, gameTimer, removed, agent);
 
         string JsonString = JsonUtility.ToJson(data);
         StreamWriter sw = new StreamWriter(Application.persistentDataPath + "/JSONData.text");
@@ -26,7 +26,7 @@ public class SaveSystem
 
     // if there is a game already played, load the saved data 
 
-    public static PlayerData LoadPlayer()
+    public static PlayerData LoadGame()
     {
         string path = Application.persistentDataPath + "/JSONData.text";
         

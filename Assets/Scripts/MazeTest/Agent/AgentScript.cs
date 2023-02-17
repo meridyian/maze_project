@@ -14,19 +14,46 @@ public class AgentScript : MonoBehaviour
     // check if player is in defined range
     public float sightRange;
     public bool playerInSightRange;
+    public static AgentScript agentinstance;
+    
+    public string agentPos;
+    public Vector3 agentReload;
+    public bool reloadAgent=false;
     
 
     public void Awake()
     {
+        if (agentinstance != null) return;
+        agentinstance = this;
+        
         playerInSightRange = false;
     }
+
+    public void Start()
+    {
+        LoadAgent();
+        
+    }
     
+    public void LoadAgent()
+    {
+        if (reloadAgent)
+        {
+            PlayerData data = SaveSystem.LoadGame();
+            agentPos = data.agentposition;
+            string[] agentposarr = agentPos.Split(new char[] { ',',' ',')', '(','"'});
+            agentReload = new Vector3(float.Parse(agentposarr[1]), float.Parse(agentposarr[3]), float.Parse(agentposarr[5]));
+            gameObject.transform.position = agentReload;
+        }
+            
+    }
 
     public void Update()
     {
         playerInSightRange = Physics.CheckSphere(transform.position, sightRange, Player);
         if (playerInSightRange) 
             FollowPlayer();
+        agentPos = transform.position.ToString();
         
     }
 

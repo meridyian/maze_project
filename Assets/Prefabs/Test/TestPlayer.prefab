@@ -207,12 +207,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4879da4ffb023412fa8e763dd2b28103, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 7
+  moveSpeed: 11
   orientation: {fileID: 4062682287210721015}
   range: 5
   vec3: 
   playerReload: {x: 0, y: 0, z: 0}
   removedceilings: []
+  playerIsThere: 0
 --- !u!1 &4099467422983825700
 GameObject:
   m_ObjectHideFlags: 0

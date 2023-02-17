@@ -15,15 +15,15 @@ public class TestTimer : MonoBehaviour
     private void Awake()
     {
         // since you call load player on awake timer will not start from 0
-        LoadPlayer();
+        LoadTime();
     }
     
-    public void LoadPlayer()
+    public void LoadTime()
     {
         // get the time that you left earlier from PlayerData
         // update the string
         
-        PlayerData data = SaveSystem.LoadPlayer();
+        PlayerData data = SaveSystem.LoadGame();
         timerString = data.timeString;
         gameTimer = timerString;
     }

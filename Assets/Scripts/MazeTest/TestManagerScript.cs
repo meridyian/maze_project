@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Net;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
@@ -15,22 +16,19 @@ public class TestManagerScript : MonoBehaviour
     public Maze maze;
     public Canvas canvas;
     public GameObject panel;
+    public AgentScript agent;
     
     // check if this is the first play
     public bool isThereData = false;
     public static TestManagerScript testinstance;
-
-
-
-
+    
     private void Awake()
     {
         // so that you can handle it in savedata and playerscripts
         
         if (testinstance != null) return;
         testinstance = this;
-        
-        
+
     }
 
     void Start()
@@ -62,8 +60,9 @@ public class TestManagerScript : MonoBehaviour
         
         panel.SetActive(false);
         GameObject instplayer = Instantiate(player,maze.startingCell.transform.position, Quaternion.identity);
-        //  start a new game dont call LoadGame
+        // start a new game dont call LoadGame
         instplayer.GetComponent<TestPlayerMovement>().playerIsThere = false;
+        FindObjectOfType<AgentScript>().reloadAgent = false;
         gt.gameTimer = 0;
         gt.enabled = true;
         
@@ -74,8 +73,16 @@ public class TestManagerScript : MonoBehaviour
     public void ReloadGame()
     {
         // if reload button is pressed instantiate player at where you left and load last game time and removed ceilings
+        // if reload button is pressed agent should be spawned at last position
+        if (agent.transform.position != AgentScript.agentinstance.agentReload)
+            agent.transform.position = AgentScript.agentinstance.agentReload;
+        else
+        {
+            return;
+        }
         panel.SetActive(false);
         GameObject reloadplayer = Instantiate(player,player.GetComponent<TestPlayerMovement>().playerReload, Quaternion.identity);
+        FindObjectOfType<AgentScript>().reloadAgent = true;
         reloadplayer.GetComponent<TestPlayerMovement>().playerIsThere = true;
         gt.enabled = true;
        
@@ -86,7 +93,8 @@ public class TestManagerScript : MonoBehaviour
     
     public void GameSaver()
     {
-        SaveSystem.SavePlayer(TestPlayerMovement.instance.vec3 , gt.timerString, TestPlayerMovement.instance.removedceilings);
+        // Add agent position
+        SaveSystem.SaveGame(TestPlayerMovement.instance.vec3 , gt.timerString, TestPlayerMovement.instance.removedceilings,agent.agentPos);
     }
 
     

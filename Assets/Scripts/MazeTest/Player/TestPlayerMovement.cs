@@ -50,7 +50,7 @@ public class TestPlayerMovement : MonoBehaviour
     {
         if (playerIsThere)
         {
-            PlayerData data = SaveSystem.LoadPlayer();
+            PlayerData data = SaveSystem.LoadGame();
             
             // check if there is no player data for exception
             if (data == null)
@@ -128,8 +128,7 @@ public class TestPlayerMovement : MonoBehaviour
             rb.velocity = new Vector3(moveDirection.x, 0f, moveDirection.z);
             
         }
-        
-        
+
     }
     
     private void SpeedControl()

@@ -39,7 +39,7 @@ public class RoomObj : MonoBehaviour
         {
             roomWalls.Add(gameObject.transform.GetChild(i));
         }
-        Debug.Log("ok");
+
 
     }
     
@@ -50,8 +50,7 @@ public class RoomObj : MonoBehaviour
 
         if (other.gameObject.CompareTag("Floor"))
         {
-            Debug.Log( transform.name+ "collided with floor" + other.gameObject.transform.position);
-            
+
             if(transform.name.StartsWith("Small Room"))
                 other.gameObject.GetComponentInChildren<Renderer>().material.color = Color.blue;
             if(transform.name.StartsWith("Big Room"))
