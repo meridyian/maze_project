@@ -14,32 +14,62 @@ public class DoorController : MonoBehaviour
 
     // check for which kind of item is required
     [SerializeField] private InventoryManager.AllItems _requiredItem;
+    private string collidedRoomName;
     
     private void OnTriggerEnter(Collider other)
     {
-
-        
         if (other.gameObject.CompareTag("Door"))
         {
-            // if player has the key of room type 
-            if (HasRequiredItem(_requiredItem))
+            if (other.gameObject.transform.parent.name.StartsWith("Small Room"))
             {
-                Debug.Log("Player just entered");
-                other.transform.GetChild(0).position = new Vector3(other.transform.GetChild(0).position.x, 1.5f,
-                    other.transform.GetChild(0).position.z);
+                _requiredItem = InventoryManager.AllItems.smallRoomKey;
+                if (HasRequiredItem(_requiredItem))
+                {
+                    other.gameObject.GetComponent<BoxCollider>().isTrigger = true;
+                    Debug.Log("Player just entered");
+                    other.transform.GetChild(0).position = new Vector3(other.transform.GetChild(0).position.x, 1.5f,
+                        other.transform.GetChild(0).position.z);
+                   
+                }
+                else if (!HasRequiredItem(_requiredItem))
+                {
+                    
+                    other.gameObject.GetComponent<BoxCollider>().isTrigger = false;
+                }
+                
+            }
+            
+            else if (other.gameObject.transform.parent.name.StartsWith("Big Room"))
+            {
+                _requiredItem = InventoryManager.AllItems.bigRoomKey;
+
+                if (HasRequiredItem(_requiredItem))
+                {
+                    other.gameObject.GetComponent<BoxCollider>().isTrigger = true;
+                    Debug.Log("Player entered to big room");
+                    other.transform.GetChild(0).position = new Vector3(other.transform.GetChild(0).position.x, 1.5f,
+                        other.transform.GetChild(0).position.z);
+                    
+                }
+                else if(!HasRequiredItem(_requiredItem))
+                {
+                    other.gameObject.GetComponent<BoxCollider>().isTrigger = false;
+                    
+                }
             }
             
         }
 
     }
 
+
+
     private void OnTriggerExit(Collider other)
     {
-       
-        
         if (other.gameObject.CompareTag("Door"))
         {
-            Debug.Log("Close the door");
+            other.gameObject.GetComponent<BoxCollider>().isTrigger = true;
+            Debug.Log("player is going out");
             other.transform.GetChild(0).position = new Vector3(other.transform.GetChild(0).position.x, 0.5f,
                 other.transform.GetChild(0).position.z);
         }
@@ -50,6 +80,7 @@ public class DoorController : MonoBehaviour
     {
         if (InventoryManager.Instance._inventoryItems.Contains(itemRequired))
         {
+            
             return true;
         }
         else
