@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 3124465454673516183}
   m_Layer: 3
   m_Name: Right2
-  m_TagString: Untagged
+  m_TagString: RoomWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -143,7 +143,7 @@ GameObject:
   - component: {fileID: 6621030935600382307}
   m_Layer: 3
   m_Name: Left3
-  m_TagString: Untagged
+  m_TagString: RoomWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -270,7 +270,7 @@ GameObject:
   - component: {fileID: 3257226198682835177}
   m_Layer: 3
   m_Name: Down2
-  m_TagString: Untagged
+  m_TagString: RoomWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -397,7 +397,7 @@ GameObject:
   - component: {fileID: 1730159364153357257}
   m_Layer: 3
   m_Name: Left2
-  m_TagString: Untagged
+  m_TagString: RoomWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -524,7 +524,7 @@ GameObject:
   - component: {fileID: 6904136892762585301}
   m_Layer: 3
   m_Name: Up2
-  m_TagString: Untagged
+  m_TagString: RoomWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -651,7 +651,7 @@ GameObject:
   - component: {fileID: 8272302932205951633}
   m_Layer: 3
   m_Name: Right3
-  m_TagString: Untagged
+  m_TagString: RoomWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -778,7 +778,7 @@ GameObject:
   - component: {fileID: 4985118420815996010}
   m_Layer: 3
   m_Name: Down1
-  m_TagString: Untagged
+  m_TagString: RoomWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -905,7 +905,7 @@ GameObject:
   - component: {fileID: 7876702553486159398}
   m_Layer: 3
   m_Name: Right1
-  m_TagString: Untagged
+  m_TagString: RoomWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1032,7 +1032,7 @@ GameObject:
   - component: {fileID: 1415583872776717812}
   m_Layer: 3
   m_Name: Left1
-  m_TagString: Untagged
+  m_TagString: RoomWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1204,8 +1204,6 @@ MonoBehaviour:
   roomWalls: []
   doorLocations: []
   doorPrefab: {fileID: 5236304604253652344, guid: 7ebb0305efcd047e285cfed36faf82cd, type: 3}
-  isFinished: 0
-  gameManager: {fileID: 6024850201817001708, guid: e7d812c14552948a9a6e88acbf5b6fe6, type: 3}
 --- !u!65 &5149517664512575126
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1251,7 +1249,7 @@ GameObject:
   - component: {fileID: 9060471290057116780}
   m_Layer: 3
   m_Name: Up1
-  m_TagString: Untagged
+  m_TagString: RoomWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1378,7 +1376,7 @@ GameObject:
   - component: {fileID: 754231562244797714}
   m_Layer: 3
   m_Name: Up3
-  m_TagString: Untagged
+  m_TagString: RoomWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1505,7 +1503,7 @@ GameObject:
   - component: {fileID: 7862802757800668558}
   m_Layer: 3
   m_Name: Down3
-  m_TagString: Untagged
+  m_TagString: RoomWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

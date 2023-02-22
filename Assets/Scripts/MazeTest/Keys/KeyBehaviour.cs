@@ -12,7 +12,7 @@ public class KeyBehaviour : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             InventoryManager.Instance.AddItem(_itemType);
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
     }
 

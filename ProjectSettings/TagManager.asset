@@ -10,6 +10,7 @@ TagManager:
   - Floor
   - Ceiling
   - Agent
+  - RoomWall
   layers:
   - Default
   - TransparentFX

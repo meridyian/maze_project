@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 8108673099320393820}
   m_Layer: 3
   m_Name: Up2
-  m_TagString: Untagged
+  m_TagString: RoomWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -144,7 +144,7 @@ GameObject:
   - component: {fileID: 8731833332357761982}
   m_Layer: 3
   m_Name: Down2
-  m_TagString: Untagged
+  m_TagString: RoomWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -283,7 +283,7 @@ GameObject:
   - component: {fileID: 3955475676180907248}
   m_Layer: 3
   m_Name: Right2
-  m_TagString: Untagged
+  m_TagString: RoomWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -410,7 +410,7 @@ GameObject:
   - component: {fileID: 6446559639491143667}
   m_Layer: 3
   m_Name: Down1
-  m_TagString: Untagged
+  m_TagString: RoomWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -537,7 +537,7 @@ GameObject:
   - component: {fileID: 1003559937940222564}
   m_Layer: 3
   m_Name: Right1
-  m_TagString: Untagged
+  m_TagString: RoomWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -664,7 +664,7 @@ GameObject:
   - component: {fileID: 2073227753122871554}
   m_Layer: 3
   m_Name: Left1
-  m_TagString: Untagged
+  m_TagString: RoomWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -832,8 +832,6 @@ MonoBehaviour:
   roomWalls: []
   doorLocations: []
   doorPrefab: {fileID: 5236304604253652344, guid: 7ebb0305efcd047e285cfed36faf82cd, type: 3}
-  isFinished: 0
-  gameManager: {fileID: 6024850201817001708, guid: e7d812c14552948a9a6e88acbf5b6fe6, type: 3}
 --- !u!65 &5149517664512575126
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -879,7 +877,7 @@ GameObject:
   - component: {fileID: 4872845047723304581}
   m_Layer: 3
   m_Name: Up1
-  m_TagString: Untagged
+  m_TagString: RoomWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1006,7 +1004,7 @@ GameObject:
   - component: {fileID: 2916832598069470889}
   m_Layer: 3
   m_Name: Left2
-  m_TagString: Untagged
+  m_TagString: RoomWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
