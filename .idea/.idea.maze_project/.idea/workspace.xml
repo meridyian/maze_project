@@ -8,7 +8,9 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/Scenes/Editor/RoomWallEditor.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/MazeGenerator/Player/PlayerMovement.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/MazeTest/DoortoWall.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/MazeTest/Keys/InventoryManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/MazeTest/Keys/KeyBehaviour.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
@@ -78,7 +80,7 @@
       <workItem from="1676620314653" duration="3543000" />
       <workItem from="1676633053276" duration="8092000" />
       <workItem from="1676874887403" duration="11782000" />
-      <workItem from="1677046273485" duration="5704000" />
+      <workItem from="1677046273485" duration="20729000" />
     </task>
     <servers />
   </component>
