@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
-[CustomEditor(typeof(DoortoWall))]
+[CustomEditor(typeof(DoorToWall))]
 
 
 public class WallEditor : Editor 
@@ -12,18 +12,17 @@ public class WallEditor : Editor
     {
         base.OnInspectorGUI();
 
-        DoortoWall doortoWall = (DoortoWall)target;
+        DoorToWall doortoWall = (DoorToWall)target;
         
         if (GUILayout.Button("Door to RoomWall"))
         {
-            doortoWall.ChangeDoortoWall();
-            Debug.Log("Door is converted to roomwall");
-           
+            doortoWall.ChangeDoorToWall();
+
         }
 
-        if (GUILayout.Button("Revert Changes"))
+        if (GUILayout.Button("Reset"))
         {
-            doortoWall.RevertChanges();
+            doortoWall.Reset();
         }
 
     }

@@ -46,11 +46,11 @@ public class RoomWall : MonoBehaviour
         doorObj.name = gameObject.name + " Door";
     }
 
-    public void RevertChanges()
+    public void Reset()
     { 
         gameObject.SetActive(true);
 
-        foreach (Transform doors in gameObject.transform.parent.transform)
+        foreach (Transform doors in transform.parent.transform)
         {
             if(doors.name.StartsWith(gameObject.name + " Door"))
                 DestroyImmediate(doors.gameObject);
