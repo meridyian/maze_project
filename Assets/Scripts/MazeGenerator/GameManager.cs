@@ -53,7 +53,7 @@ public class GameManager : MonoBehaviour
         
         mazeInstance = Instantiate(mazePrefab) as Maze;
         mazeInstance.Generate();
-        roomInstance = Instantiate(roomPrefab, mazeInstance.transform) as Room;
+        //roomInstance = Instantiate(roomPrefab, mazeInstance.transform) as Room;
         //player = Instantiate(player, mazeInstance.startingCell.transform.position, Quaternion.identity);
         //player.SetActive(false);
     }

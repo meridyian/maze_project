@@ -18,7 +18,8 @@ public class Maze : MonoBehaviour
     // instantiate room elements
     public float generationStepDelay;
     public List<Vector3> deadEndList;
-    public Room roomHolder;
+    public GameObject roomHolderObject;
+    //public Room roomHolder;
     
     // instantiate ceiling to form minimap
     public CeilingCell ceilingPrefab;
@@ -180,7 +181,7 @@ public class Maze : MonoBehaviour
         
         Debug.Log("DFS is finished");
         
-        StartCoroutine(roomHolder.SpawnRoom());
+        StartCoroutine(roomHolderObject.GetComponent<Room>().SpawnRoom());
         yield return new WaitForSeconds(2f);
         isFinished = true;
 

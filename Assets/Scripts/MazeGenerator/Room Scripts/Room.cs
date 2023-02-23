@@ -94,7 +94,7 @@ public class Room : MonoBehaviour
             // spawn rooms at points
             
             int randomIndex = Random.Range(0, roomPrefabs.Length);
-            var go = Instantiate(roomPrefabs[randomIndex], points[i], Quaternion.identity);
+            var go = Instantiate(roomPrefabs[randomIndex], points[i], Quaternion.identity, maze.roomHolderObject.transform);
             go.name = roomPrefabs[randomIndex].name + " " +(i+1);
             
         }
