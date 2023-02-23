@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour
     private bool spawnroom;
     public Text gameTimer;
 
+    public GameObject saveCanvas;
     //public GameTimer gT;
 
     
@@ -36,14 +37,12 @@ public class GameManager : MonoBehaviour
     {
         // spawn the player at starting cell and set the timer when maze is finished
         
-        if (mazeInstance.isFinished)
+        if (mazeInstance.roomHolderObject.GetComponent<Room>().canOpenCanvas)
         {
-            // canvası açabilirsin
-            Debug.Log("Maze is finished");
+            saveCanvas.SetActive(true);
             
-            //player.SetActive(true);
-            //gameTimer.gameObject.GetComponent<GameTimer>().enabled = true;
         }
+        
             
             
     }

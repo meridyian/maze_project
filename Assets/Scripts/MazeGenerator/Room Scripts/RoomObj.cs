@@ -15,14 +15,14 @@ public class RoomObj : MonoBehaviour
     public List<Transform> doorLocations;
     public GameObject doorPrefab;
     private int spawnDelay = 3;
+    public bool doorsSpawned;
     
 
     
     private void Start()
     {
-
         StartCoroutine(SpawnDoors());
-        List<Transform> doorLocations = new List<Transform>();
+        //List<Transform> doorLocations = new List<Transform>();
     }
 
 
@@ -87,10 +87,10 @@ public class RoomObj : MonoBehaviour
 
             
         }
-        
-        
 
+        yield return new WaitForSeconds(2);
+        transform.parent.GetComponent<Room>().canOpenCanvas = true;
+        
     }
-
     
 }

@@ -10,23 +10,24 @@ public class Room : MonoBehaviour
     public RoomObj[] roomPrefabs;
     public float distanceBetweenRooms;
     private List<Vector3> points = new List<Vector3>();
-    public GameManager gameManager;
+    
     public Maze maze;
     private MazeCell mazeCell;
     private float maxRoomWidth;
     public int roomCount;
     
-    
+    public bool canOpenCanvas { get; set; }
     private RoomWall roomWall;
     public float transformPntExtens;
     public List<float> x = new List<float>();
-
+    
     
     public void Awake()
     {
         SetSize();
-
+        canOpenCanvas = false;
     }
+
     
     // to find the largest room in prefabs 
     public float SetSize()
@@ -96,6 +97,7 @@ public class Room : MonoBehaviour
             int randomIndex = Random.Range(0, roomPrefabs.Length);
             var go = Instantiate(roomPrefabs[randomIndex], points[i], Quaternion.identity, maze.roomHolderObject.transform);
             go.name = roomPrefabs[randomIndex].name + " " +(i+1);
+
             
         }
         

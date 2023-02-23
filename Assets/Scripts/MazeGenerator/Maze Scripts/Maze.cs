@@ -32,7 +32,9 @@ public class Maze : MonoBehaviour
     public MazeCell startingCell;
     public bool isFinished;
     private MazeCell[,] cells;
+    
 
+    
     
 
     public void Generate()
