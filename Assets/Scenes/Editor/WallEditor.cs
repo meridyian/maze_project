@@ -8,21 +8,33 @@ using UnityEditor;
 public class WallEditor : Editor 
 {
     
+    
     public override void OnInspectorGUI()
     {
         base.OnInspectorGUI();
-
         DoorToWall doortoWall = (DoorToWall)target;
-        
-        if (GUILayout.Button("Door to RoomWall"))
-        {
-            doortoWall.ChangeDoorToWall();
 
-        }
+        string text;
+        if (doortoWall.doorConverted)
+            text = "Change back";
+        else
+            text = "Door to RoomWall";
 
-        if (GUILayout.Button("Reset"))
+
+
+        if (GUILayout.Button(text))
         {
-            doortoWall.Reset();
+            if (!doortoWall.doorConverted)
+            {
+                doortoWall.doorConverted = true;
+                doortoWall.ChangeDoorToWall();
+            }
+            else
+            {
+                doortoWall.doorConverted = false;
+                doortoWall.Reset();
+            }
+
         }
 
     }

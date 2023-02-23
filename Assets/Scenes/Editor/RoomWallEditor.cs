@@ -12,18 +12,29 @@ public class RoomWallEditor : Editor
         base.OnInspectorGUI();
 
         RoomWall roomWall = (RoomWall)target;
+        string text;
+        
+        if (roomWall.IsConverted)
+            text = "Change Back";
+        else
+            text = "RoomWall to Door";
 
-        if (GUILayout.Button("RoomWall to Door"))
+        
+        if (GUILayout.Button(text))
         {
-            roomWall.MakeDoor();
-
-
+            if (!roomWall.IsConverted)
+            {
+                roomWall.IsConverted = true;
+                roomWall.MakeDoor();
+            }
+            else
+            {
+                roomWall.IsConverted = false;
+                roomWall.Reset();
+            }
+            
         }
-        if (GUILayout.Button("Revert Changes")) 
-        {
-            roomWall.Reset();
-        }
-
+        
         
     }
 }

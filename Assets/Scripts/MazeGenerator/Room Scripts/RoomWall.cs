@@ -10,7 +10,8 @@ public class RoomWall : MonoBehaviour
 {
     
     // after spawning the room, remove walls that collide with the room
-    
+    public bool IsConverted { get; set; }
+
     public void OnCollisionEnter(Collision other)
     {
         
