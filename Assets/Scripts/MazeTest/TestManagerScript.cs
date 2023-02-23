@@ -84,9 +84,6 @@ public class TestManagerScript : MonoBehaviour
         GameObject reloadplayer = Instantiate(player,player.GetComponent<TestPlayerMovement>().playerReload, Quaternion.identity);
         FindObjectOfType<AgentScript>().reloadAgent = true;
         reloadplayer.GetComponent<TestPlayerMovement>().playerIsThere = true;
-        FindObjectOfType<InventoryManager>().reloadInventory = true;
-        // reloadInventory.GetComponent<InventoryManagement>().loadKeys = true;
-        
         gt.enabled = true;
        
         
@@ -97,7 +94,7 @@ public class TestManagerScript : MonoBehaviour
     public void GameSaver()
     {
         // Add agent position
-        SaveSystem.SaveGame(TestPlayerMovement.instance.vec3 , gt.timerString, TestPlayerMovement.instance.removedceilings,agent.agentPos, InventoryManager.Instance.savedItems);
+        //SaveSystem.SaveGame(TestPlayerMovement.instance.vec3 , gt.timerString, TestPlayerMovement.instance.removedceilings,agent.agentPos);
     }
 
     

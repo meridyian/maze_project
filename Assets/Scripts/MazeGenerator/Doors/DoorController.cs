@@ -12,17 +12,17 @@ public class DoorController : MonoBehaviour
     // move the doors up, collider should be seperated from object
     // will be assigned to player
     
-    // check for which kind of item is required
-    [SerializeField] private InventoryManager.AllItems _requiredItem;
+    // each room should have an attribute like color, keys should match
+    //[SerializeField] private InventoryManager.AllItems _requiredItem;
     private string collidedRoomName;
     
-    private void OnTriggerEnter(Collider other)
+   /* private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Door"))
         {
             if (other.gameObject.transform.parent.name.StartsWith("Small Room"))
             {
-                _requiredItem = InventoryManager.AllItems.smallRoomKey;
+                // required 
                 if (HasRequiredItem(_requiredItem))
                 {
                     other.gameObject.GetComponent<BoxCollider>().isTrigger = true;
@@ -41,7 +41,7 @@ public class DoorController : MonoBehaviour
             
             else if (other.gameObject.transform.parent.name.StartsWith("Big Room"))
             {
-                _requiredItem = InventoryManager.AllItems.bigRoomKey;
+                //_requiredItem = InventoryManager.AllItems.bigRoomKey;
 
                 if (HasRequiredItem(_requiredItem))
                 {
@@ -87,7 +87,7 @@ public class DoorController : MonoBehaviour
         {
             return false;
         }
-    }
+    }*/
 
 }
 

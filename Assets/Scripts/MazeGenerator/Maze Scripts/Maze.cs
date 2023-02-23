@@ -23,6 +23,9 @@ public class Maze : MonoBehaviour
     // instantiate ceiling to form minimap
     public CeilingCell ceilingPrefab;
     public GameObject ceilingHolder;
+
+    //to keep things tidy
+    public GameObject mazeCellHolder;
     
     // keep the starting cell of DFS
     public MazeCell startingCell;
@@ -57,7 +60,7 @@ public class Maze : MonoBehaviour
     {
         deadEndList = new List<Vector3>();
         MazeCell newCell = Instantiate(cellPrefab) as MazeCell;
-        newCell.Initialize(x,z,transform);
+        newCell.Initialize(x,z,mazeCellHolder.transform);
         cells[x,z] = newCell;
         newCell.transform.localPosition = new Vector3(x - size.x * 0.5f + 0.5f, 0f, z - size.z * 0.5f + 0.5f);
         

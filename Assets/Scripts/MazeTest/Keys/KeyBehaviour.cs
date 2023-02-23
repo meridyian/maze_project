@@ -4,16 +4,17 @@ using UnityEngine;
 
 public class KeyBehaviour : MonoBehaviour
 {
-    [SerializeField] private InventoryManager.AllItems _itemType;
-
+    public List<string> keys = new List<string>();
+    
     
     private void OnTriggerEnter(Collider collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            InventoryManager.Instance.AddItem(_itemType);
+            keys.Add(gameObject.name);
             gameObject.SetActive(false);
         }
     }
+
 
 }

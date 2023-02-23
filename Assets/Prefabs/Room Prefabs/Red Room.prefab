@@ -902,7 +902,7 @@ GameObject:
   - component: {fileID: 5149517664512575126}
   - component: {fileID: 5899951054909176709}
   m_Layer: 3
-  m_Name: Big Room
+  m_Name: Red Room
   m_TagString: Room
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -38,8 +38,11 @@ public class GameManager : MonoBehaviour
         
         if (mazeInstance.isFinished)
         {
-            player.SetActive(true);
-            gameTimer.gameObject.GetComponent<GameTimer>().enabled = true;
+            // canvası açabilirsin
+            Debug.Log("Maze is finished");
+            
+            //player.SetActive(true);
+            //gameTimer.gameObject.GetComponent<GameTimer>().enabled = true;
         }
             
             
@@ -50,9 +53,9 @@ public class GameManager : MonoBehaviour
         
         mazeInstance = Instantiate(mazePrefab) as Maze;
         mazeInstance.Generate();
-        roomInstance = Instantiate(roomPrefab) as Room;
-        player = Instantiate(player, mazeInstance.startingCell.transform.position, Quaternion.identity);
-        player.SetActive(false);
+        roomInstance = Instantiate(roomPrefab, mazeInstance.transform) as Room;
+        //player = Instantiate(player, mazeInstance.startingCell.transform.position, Quaternion.identity);
+        //player.SetActive(false);
     }
 
     

@@ -12,9 +12,9 @@ public class SaveSystem
     
     // to save player position, time and minimap
     
-    public static void SaveGame(string playerMovement, float gameTimer, List<string> removed, string agent, List<InventoryManager.AllItems> inventoryKeys)
+    public static void SaveGame(string playerMovement, float gameTimer, List<string> removed, string agent, List<string> keys)
     {
-        PlayerData data = new PlayerData(playerMovement, gameTimer, removed, agent, inventoryKeys);
+        PlayerData data = new PlayerData(playerMovement, gameTimer, removed, agent, keys);
 
         string JsonString = JsonUtility.ToJson(data);
         StreamWriter sw = new StreamWriter(Application.persistentDataPath + "/JSONData.text");
