@@ -47,18 +47,19 @@ public class GameManager : MonoBehaviour
         
         mazeInstance = Instantiate(mazePrefab) as Maze;
         mazeInstance.Generate();
-        //roomInstance = Instantiate(roomPrefab, mazeInstance.transform) as Room;
-        //player = Instantiate(player, mazeInstance.startingCell.transform.position, Quaternion.identity);
-        //player.SetActive(false);
+        /*roomInstance = Instantiate(roomPrefab, mazeInstance.transform) as Room;
+        player = Instantiate(player, mazeInstance.startingCell.transform.position, Quaternion.identity);
+        player.SetActive(false);
+        */
     }
 
 
-    /*public void CreateButton()
+    public void CreateButton()
     {
-        reload active scene
-        reset at tekrar begin game yükle hangisi hızlıysa
+        Destroy(FindObjectOfType<Maze>().gameObject);
+        BeginGame();
     }
-    */
+    
 
     public void SaveMaze()
     {
@@ -66,11 +67,6 @@ public class GameManager : MonoBehaviour
         
         // Make sure the file name is unique, in case an existing Prefab has the same name
         localPath = AssetDatabase.GenerateUniqueAssetPath(localPath);
-        
-        //Maze --> Maze 1
-        // Create the new Prefab.
-
-
         PrefabUtility.SaveAsPrefabAssetAndConnect(mazeInstance.gameObject, localPath, InteractionMode.UserAction);
     }
     
