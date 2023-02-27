@@ -1,9 +1,8 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+
 
 public class GameManager : MonoBehaviour
 {
@@ -28,11 +27,9 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         BeginGame();
+       
     }
 
-    
-    
-    
     private void Update()
     {
         // spawn the player at starting cell and set the timer when maze is finished
@@ -43,8 +40,6 @@ public class GameManager : MonoBehaviour
             
         }
         
-            
-            
     }
 
     public void BeginGame()
@@ -57,5 +52,29 @@ public class GameManager : MonoBehaviour
         //player.SetActive(false);
     }
 
+
+    /*public void CreateButton()
+    {
+        reload active scene
+        reset at tekrar begin game yükle hangisi hızlıysa
+    }
+    */
+
+    public void SaveMaze()
+    {
+        string localPath = "Assets/Prefabs/" + mazeInstance.gameObject.name + ".prefab";
+        
+        // Make sure the file name is unique, in case an existing Prefab has the same name
+        localPath = AssetDatabase.GenerateUniqueAssetPath(localPath);
+        
+        //Maze --> Maze 1
+        // Create the new Prefab.
+
+
+        PrefabUtility.SaveAsPrefabAssetAndConnect(mazeInstance.gameObject, localPath, InteractionMode.UserAction);
+    }
+    
+
+    
     
 }
