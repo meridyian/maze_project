@@ -832,6 +832,8 @@ MonoBehaviour:
   roomWalls: []
   doorLocations: []
   doorPrefab: {fileID: 5236304604253652344, guid: 7ebb0305efcd047e285cfed36faf82cd, type: 3}
+  roomSo: {fileID: 11400000, guid: 8b799dd46709a4d7591bb3e3ab8b39f5, type: 2}
+  doorsSpawned: 0
 --- !u!65 &5149517664512575126
 BoxCollider:
   m_ObjectHideFlags: 0

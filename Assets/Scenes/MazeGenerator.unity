@@ -168,9 +168,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mazePrefab: {fileID: 4552829675547296550, guid: e91d38af152744237b0d8acf3c29c51b, type: 3}
-  roomPrefab: {fileID: 1748227144377490132, guid: aa3ff4ff39b734d109184ebb68390e38, type: 3}
-  player: {fileID: 4062682287443211232, guid: b5c83abb6d24f46d5bc4b3a0e3cc158e, type: 3}
-  gameTimer: {fileID: 697085711}
   saveCanvas: {fileID: 1094059030}
 --- !u!1 &358855363
 GameObject:
@@ -306,17 +303,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 358855363}
   m_CullTransparentMesh: 1
---- !u!114 &697085711 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4997034547753357008, guid: 0f141633faab04d4aa841f28ceef895f, type: 3}
-  m_PrefabInstance: {fileID: 4997034548148380127}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0

@@ -8,7 +8,7 @@ using Random = UnityEngine.Random;
 public class Room : MonoBehaviour
 {
     public RoomObj[] roomPrefabs;
-    public float distanceBetweenRooms;
+    //public float distanceBetweenRooms;
     private List<Vector3> points = new List<Vector3>();
     
     public Maze maze;
@@ -18,7 +18,6 @@ public class Room : MonoBehaviour
     
     public bool canOpenCanvas { get; set; }
     private RoomWall roomWall;
-    public float transformPntExtens;
     public List<float> x = new List<float>();
     
     
@@ -34,14 +33,14 @@ public class Room : MonoBehaviour
     {
         foreach (var item in roomPrefabs)
         {
-            float k = item.transform.localScale.x;
+            float k = item.transform.childCount;
 
             x.Add(k);
             x = x.OrderBy(k => k).ToList();
             maxRoomWidth = x.Last();
+            //minRoomWidth = x.First();
         }
-        
-
+        Debug.Log(maxRoomWidth);
         return maxRoomWidth;
     }
 
@@ -51,12 +50,13 @@ public class Room : MonoBehaviour
     {
         // spawn rooms şn a range that they will be inside of the maze bounds
         // transformPntExtens should be equal to length of the biggest room's edge
-        
+
+        float roomDistance = maxRoomWidth / 4f + 2f;
         for (int i = 0; i < roomCount; i++)
         {
             
-            float x = Random.Range(-maze.size.x * 0.5f + transformPntExtens, maze.size.x * 0.5f - transformPntExtens);
-            float z = Random.Range(-maze.size.z * 0.5f + transformPntExtens, maze.size.z * 0.5f - transformPntExtens);
+            float x = Random.Range(-maze.mazesize.x * 0.5f + maxRoomWidth/4f, maze.mazesize.x * 0.5f - maxRoomWidth/4f);
+            float z = Random.Range(-maze.mazesize.z * 0.5f + maxRoomWidth/4f, maze.mazesize.z * 0.5f - maxRoomWidth/4f);
             
             
             Vector3 point = new Vector3(Mathf.RoundToInt(x), 0.5f, Mathf.RoundToInt(z));
@@ -74,7 +74,7 @@ public class Room : MonoBehaviour
                 // distance between points should always be bigger than hypotenuse of the room 
 
                 
-                if ((point - points[j]).sqrMagnitude > distanceBetweenRooms * distanceBetweenRooms)
+                if ((point - points[j]).sqrMagnitude > roomDistance * roomDistance)
                 {
                     if (j == points.Count - 1)
                     {

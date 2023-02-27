@@ -10,11 +10,12 @@ using Random = UnityEngine.Random;
 
 public class RoomObj : MonoBehaviour
 {
-    [SerializeField]
+    [SerializeField] 
     public List<Transform> roomWalls;
     public List<Transform> doorLocations;
     public GameObject doorPrefab;
     private int spawnDelay = 3;
+    public RoomSO roomSo;
     public bool doorsSpawned;
     
 
@@ -51,10 +52,10 @@ public class RoomObj : MonoBehaviour
         if (other.gameObject.CompareTag("Floor"))
         {
 
-            if(transform.name.StartsWith("Small Room"))
-                other.gameObject.GetComponentInChildren<Renderer>().material.color = Color.blue;
-            if(transform.name.StartsWith("Big Room"))
-                other.gameObject.GetComponentInChildren<Renderer>().material.color = Color.red;
+            if(transform.name.StartsWith("Red"))
+                other.gameObject.GetComponentInChildren<Renderer>().material.color = roomSo.bigRoomColor;
+            if(transform.name.StartsWith("Blue"))
+                other.gameObject.GetComponentInChildren<Renderer>().material.color = roomSo.smallRoomColor;
             
            
             

@@ -11,13 +11,13 @@ using Random = UnityEngine.Random;
 public class Maze : MonoBehaviour
 {
     // instantiate maze elements
-    public IntVector2 size;
+    public IntVector2 mazesize;
     public MazeCell cellPrefab;
     public MazeCellWall wallPrefab;
     
     // instantiate room elements
     public float generationStepDelay;
-    public List<Vector3> deadEndList;
+    //public List<Vector3> deadEndList;
     public GameObject roomHolderObject;
     //public Room roomHolder;
     
@@ -34,19 +34,20 @@ public class Maze : MonoBehaviour
     private MazeCell[,] cells;
 
     public static Maze instanceMaze;
+    public RoomSO roomSo;
     
     
 
     public void Generate()
     {
-        WaitForSeconds delay = new WaitForSeconds(generationStepDelay);   
-        cells = new MazeCell[size.x, size.z];
+        WaitForSeconds delay = new WaitForSeconds(generationStepDelay);
+        cells = new MazeCell[mazesize.x, mazesize.z];
         
         // Generate base, walls and ceiling maze cells 
         
-        for (int x = 0; x < size.x; x++)
+        for (int x = 0; x < mazesize.x; x++)
         {
-            for (int z = 0; z < size.z; z++)
+            for (int z = 0; z < mazesize.z; z++)
             {
                 CreateCell(x, z); 
                 CreateCeilingCell(x, z);
@@ -61,11 +62,11 @@ public class Maze : MonoBehaviour
 
     public void CreateCell(int x, int z)
     {
-        deadEndList = new List<Vector3>();
+        //deadEndList = new List<Vector3>();
         MazeCell newCell = Instantiate(cellPrefab) as MazeCell;
         newCell.Initialize(x,z,mazeCellHolder.transform);
         cells[x,z] = newCell;
-        newCell.transform.localPosition = new Vector3(x - size.x * 0.5f + 0.5f, 0f, z - size.z * 0.5f + 0.5f);
+        newCell.transform.localPosition = new Vector3(x - mazesize.x * 0.5f + 0.5f, 0f, z - mazesize.z * 0.5f + 0.5f);
         
         
         // if x ==0 or z == 0, the outer cells will be created as west and south
@@ -119,12 +120,13 @@ public class Maze : MonoBehaviour
 
         // start from a random cell, add randomization
        
-        int startingRandx = Random.Range(0, size.x);
-        int startingRandz = Random.Range(0, size.z);
+        int startingRandx = Random.Range(0, mazesize.x);
+        int startingRandz = Random.Range(0, mazesize.z);
         
         MazeCell currentCell = cells[startingRandx,startingRandz];
         // keep the starting cell to spawn player
         startingCell = cells[startingRandx,startingRandz];
+        startingCell.gameObject.GetComponentInChildren<Renderer>().material.color = roomSo.startingCell;
         
         currentCell.Visited = true;
         cellsStack.Push(currentCell);
@@ -141,7 +143,6 @@ public class Maze : MonoBehaviour
             if (neighbours.Count == 0)
             {
                 // to check if you can see the deadends
-                deadEndList.Add(currentCell.transform.localPosition);
                 currentCell = cellsStack.Pop();
                 continue;
             }
@@ -151,7 +152,7 @@ public class Maze : MonoBehaviour
             // that you have no walls between 
 
             MazeCell nextCell = neighbours[Random.Range(0, neighbours.Count)];
-            nextCell.gameObject.GetComponentInChildren<Renderer>().material.color = Color.gray;
+            //nextCell.gameObject.GetComponentInChildren<Renderer>().material.color = Color.gray;
             
             
             if (currentCell.position.x == nextCell.position.x)
@@ -210,12 +211,12 @@ public class Maze : MonoBehaviour
             cellsList.Add(cells[x-1, z]);
         }
         // east
-        if ((x < size.x-1) && !cells[x+1, z].Visited)
+        if ((x < mazesize.x-1) && !cells[x+1, z].Visited)
         {
             cellsList.Add(cells[x+1, z]);
         }
         // north
-        if ((z < size.z - 1) && !cells[x, z + 1].Visited)
+        if ((z < mazesize.z - 1) && !cells[x, z + 1].Visited)
         {
             cellsList.Add(cells[x, z+1]);
         }
@@ -228,7 +229,7 @@ public class Maze : MonoBehaviour
     {
         CeilingCell newceilingCell = Instantiate(ceilingPrefab) as CeilingCell;
         newceilingCell.Initialize(x,z,ceilingHolder.transform);
-        newceilingCell.transform.localPosition = new Vector3(x - size.x * 0.5f + 0.5f, 2f, z - size.z * 0.5f + 0.5f);
+        newceilingCell.transform.localPosition = new Vector3(x - mazesize.x * 0.5f + 0.5f, 2f, z - mazesize.z * 0.5f + 0.5f);
 
     }
     

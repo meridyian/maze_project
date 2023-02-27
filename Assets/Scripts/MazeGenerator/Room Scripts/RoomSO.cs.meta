@@ -1,11 +1,9 @@
 fileFormatVersion: 2
-guid: 6a1a39613f3324079bfa9865218fbb5b
+guid: e4186a25431474eb58d3b201159476d8
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences:
-  - doorPrefab: {instanceID: 0}
-  - roomSo: {fileID: 11400000, guid: 8b799dd46709a4d7591bb3e3ab8b39f5, type: 2}
+  defaultReferences: []
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

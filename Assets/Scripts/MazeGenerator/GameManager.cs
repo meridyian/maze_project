@@ -10,24 +10,26 @@ public class GameManager : MonoBehaviour
     // for maze prefab (parent object)
     public Maze mazePrefab;
     // to be able to hold created instance
-    private Maze mazeInstance;   
+    private Maze mazeInstance;
     
-    public Room roomPrefab;
-    private Room roomInstance;
-
-    private RoomWall roomWall;
-    public GameObject player;
-    private bool spawnroom;
-    public Text gameTimer;
-
+    public static GameManager gmInstance;
     public GameObject saveCanvas;
-    //public GameTimer gT;
+    
+    //private RoomWall roomWall;
+    //private bool spawnroom;
+    /*public Room roomPrefab;
+    private Room roomInstance;
+    public Text gameTimer;
+    public GameObject player;
+    public GameTimer gT;
+    */
 
     
     void Start()
     {
+        
         BeginGame();
-       
+        
     }
 
     private void Update()
@@ -63,8 +65,7 @@ public class GameManager : MonoBehaviour
 
     public void SaveMaze()
     {
-        string localPath = "Assets/Prefabs/" + mazeInstance.gameObject.name + ".prefab";
-        
+        string localPath = "Assets/Prefabs/" + "Maze : " + mazeInstance.mazesize.x +" : "+ mazeInstance.mazesize.z + ".prefab";
         // Make sure the file name is unique, in case an existing Prefab has the same name
         localPath = AssetDatabase.GenerateUniqueAssetPath(localPath);
         PrefabUtility.SaveAsPrefabAssetAndConnect(mazeInstance.gameObject, localPath, InteractionMode.UserAction);
