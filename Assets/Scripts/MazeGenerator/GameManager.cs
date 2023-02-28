@@ -23,13 +23,10 @@ public class GameManager : MonoBehaviour
     public GameObject player;
     public GameTimer gT;
     */
-
     
     void Start()
     {
-        
         BeginGame();
-        
     }
 
     private void Update()

@@ -32,7 +32,7 @@ public class Maze : MonoBehaviour
     public MazeCell startingCell;
     public bool isFinished;
     private MazeCell[,] cells;
-
+    public int numberofRoom;
     public static Maze instanceMaze;
     public RoomSO roomSo;
     
