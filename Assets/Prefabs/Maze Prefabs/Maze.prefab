@@ -60,6 +60,7 @@ MonoBehaviour:
   mazeCellHolder: {fileID: 7057403454469067526}
   startingCell: {fileID: 0}
   isFinished: 0
+  numberofRoom: 8
   roomSo: {fileID: 11400000, guid: 8b799dd46709a4d7591bb3e3ab8b39f5, type: 2}
 --- !u!114 &1793849949849985496
 MonoBehaviour:
