@@ -2,19 +2,22 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.InputSystem.Interactions;
 using Random = UnityEngine.Random;
 
 public class Room : MonoBehaviour
 {
     public RoomObj[] roomPrefabs;
     //public float distanceBetweenRooms;
+    public int numberofRoom;
     private List<Vector3> points = new List<Vector3>();
     
     public Maze maze;
     private MazeCell mazeCell;
     private float maxRoomWidth;
-    public int roomCount;
+
     
     public bool canOpenCanvas { get; set; }
     private RoomWall roomWall;
@@ -50,43 +53,53 @@ public class Room : MonoBehaviour
     {
         // spawn rooms şn a range that they will be inside of the maze bounds
         // transformPntExtens should be equal to length of the biggest room's edge
+        // add an int to keep track of successful roomcount build a while loop
+        // while successful spawn < roomnumber spawn room 
 
         float roomDistance = maxRoomWidth / 4f + 2f;
-        for (int i = 0; i < roomCount; i++)
+
+        int numGeneratedPoints = 0; //counter for the generated number points
+
+        while (numGeneratedPoints < numberofRoom)
         {
-            
             float x = Random.Range(-maze.mazesize.x * 0.5f + maxRoomWidth/4f, maze.mazesize.x * 0.5f - maxRoomWidth/4f);
             float z = Random.Range(-maze.mazesize.z * 0.5f + maxRoomWidth/4f, maze.mazesize.z * 0.5f - maxRoomWidth/4f);
-            
             
             Vector3 point = new Vector3(Mathf.RoundToInt(x), 0.5f, Mathf.RoundToInt(z));
 
             if (points.Count == 0)
             {
                 points.Add(point);
-                i++;
+                numGeneratedPoints++;
                 Debug.Log("first room");
                 continue;
             }
 
+            bool isValidPoint = true;
             for (int j = 0; j < points.Count; j++)
             {
-                // distance between points should always be bigger than hypotenuse of the room 
-
-                
-                if ((point - points[j]).sqrMagnitude > roomDistance * roomDistance)
+                //distance between points should always be bigger than hypotenuse of the room
+                if ((point - points[j]).sqrMagnitude <= roomDistance * roomDistance)
                 {
-                    if (j == points.Count - 1)
-                    {
-                        points.Add(point);
-                        i++;
-                    }
-                    continue;
+                    // if the distance is less than the minimum distance, the new point is too close to an existing point
+                    isValidPoint = false;
+                    break;
                 }
-                break;
             }
             
+            // If the new point is valid, add it to the list and increment the number of generated points
+            if (isValidPoint)
+            {
+                points.Add(point);
+                numGeneratedPoints++;
+            }
         }
+
+        foreach (Vector3 point in points)
+        {
+            Debug.Log("point : " +point);
+        }
+        
         
         yield return new WaitForSeconds(1);
 

@@ -155,6 +155,10 @@ PrefabInstance:
       value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 1748227144377490132, guid: aa3ff4ff39b734d109184ebb68390e38, type: 3}
+      propertyPath: numberofRoom
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1748227144377490132, guid: aa3ff4ff39b734d109184ebb68390e38, type: 3}
       propertyPath: distanceBetweenRooms
       value: 3
       objectReference: {fileID: 0}
