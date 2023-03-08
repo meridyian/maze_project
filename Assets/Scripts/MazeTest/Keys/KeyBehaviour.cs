@@ -13,9 +13,8 @@ public class KeyBehaviour : MonoBehaviour
         {
             InventoryManager.Instance.AddKey(_itemType);
             gameObject.SetActive(false);
-            transform.parent.GetComponent<RoomObj>().isKeyCollected = true;
+            //transform.parent.GetComponent<KeySwitch>().isKeyCollected = true;
         }
     }
-
-
+    
 }

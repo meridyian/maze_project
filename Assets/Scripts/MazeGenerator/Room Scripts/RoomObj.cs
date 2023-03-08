@@ -12,12 +12,13 @@ public class RoomObj : MonoBehaviour
     public List<Transform> doorLocations;
     public GameObject doorPrefab;
     private int spawnDelay = 3;
-    public RoomSO roomSo;
+
     public bool doorsSpawned;
     public Color floorColor;
     //public Color[] floorColorArray;
     public List<MazeCell> FloorList = new List<MazeCell>();
-    public bool isKeyCollected;
+    
+    
 
 
     private void Start()

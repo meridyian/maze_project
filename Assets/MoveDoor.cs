@@ -38,6 +38,7 @@ public class MoveDoor : MonoBehaviour
         }
     }
 
+    
     public bool HasRequiredKey(InventoryManager.AllKeys keyRequired)
     {
         if (InventoryManager.Instance._inventoryItems.Contains(keyRequired))
@@ -45,4 +46,5 @@ public class MoveDoor : MonoBehaviour
         else
             return false;
     }
+    
 }
