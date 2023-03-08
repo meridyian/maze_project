@@ -12,6 +12,7 @@ public class Room : MonoBehaviour
     public RoomObj[] roomPrefabs;
     //public float distanceBetweenRooms;
     
+    public List<RoomObj> RoomObjectList=new List<RoomObj>();
     private List<Vector3> points = new List<Vector3>();
     
     public Maze maze;
@@ -54,7 +55,7 @@ public class Room : MonoBehaviour
         // spawn rooms in a range so that they will be inside of the maze bounds
         // maxRoomWidth/4f should be equal to length of the biggest room's edge
         // build a while loop to specify number of the rooms that will be spawned
-        
+        Debug.Break();
         float roomDistance = maxRoomWidth / 4f + 2f;
         int numGeneratedPoints = 0; //counter for the generated number points
 
@@ -107,8 +108,10 @@ public class Room : MonoBehaviour
             
             int randomIndex = Random.Range(0, roomPrefabs.Length);
             var go = Instantiate(roomPrefabs[randomIndex], points[i], Quaternion.identity, maze.roomHolderObject.transform);
+            RoomObjectList.Add(go);
             go.name = roomPrefabs[randomIndex].name + " " +(i+1);
-
+            go.SetRandomColor();
+            go.SetFloorColor();
         }
         
     }

@@ -54,7 +54,7 @@ MonoBehaviour:
   cellPrefab: {fileID: 7173988776250496257, guid: 370dc6858b9da4410886d8dffce4474a, type: 3}
   wallPrefab: {fileID: -2830167031307628382, guid: 14f340458cabf4678a294806b0d5d63a, type: 3}
   generationStepDelay: 0
-  roomHolderObject: {fileID: 5954972221917001707}
+  roomHolderObject: {fileID: 6390803264251585383}
   ceilingPrefab: {fileID: 2002715440076158960, guid: 79dade78c2bb34e72bcd0bb4ea4bb3e6, type: 3}
   ceilingHolder: {fileID: 6255465588921057230}
   mazeCellHolder: {fileID: 7057403454469067526}
@@ -209,11 +209,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aa3ff4ff39b734d109184ebb68390e38, type: 3}
---- !u!1 &5954972221917001707 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1321258149522558552, guid: aa3ff4ff39b734d109184ebb68390e38, type: 3}
+--- !u!114 &6390803264251585383 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1748227144377490132, guid: aa3ff4ff39b734d109184ebb68390e38, type: 3}
   m_PrefabInstance: {fileID: 4679876519413135795}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dff06d8aaeae34282abb99bf46269d8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &8349184493651417071 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3687324297699094108, guid: aa3ff4ff39b734d109184ebb68390e38, type: 3}

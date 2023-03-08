@@ -12,7 +12,6 @@ public class TestManagerScript : MonoBehaviour
 {
     public GameObject player;
     public TestTimer gt;
-    //public Text gameTimerText;
     public Maze maze;
     public Canvas canvas;
     public GameObject panel;
@@ -26,7 +25,6 @@ public class TestManagerScript : MonoBehaviour
     private void Awake()
     {
         // so that you can handle it in savedata and playerscripts
-        
         if (testinstance != null) return;
         testinstance = this;
 

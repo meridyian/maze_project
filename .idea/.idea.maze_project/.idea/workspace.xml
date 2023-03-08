@@ -28,7 +28,7 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -82,6 +82,10 @@
       <workItem from="1676874887403" duration="11782000" />
       <workItem from="1677046273485" duration="34108000" />
       <workItem from="1677586316901" duration="4044000" />
+      <workItem from="1677825603416" duration="1155000" />
+      <workItem from="1677877068819" duration="49000" />
+      <workItem from="1677877144197" duration="361000" />
+      <workItem from="1678257753641" duration="2941000" />
     </task>
     <servers />
   </component>
@@ -104,5 +108,9 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

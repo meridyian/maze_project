@@ -18,7 +18,7 @@ public class Maze : MonoBehaviour
     // instantiate room elements
     public float generationStepDelay;
     //public List<Vector3> deadEndList;
-    public GameObject roomHolderObject;
+    public Room roomHolderObject;
     //public Room roomHolder;
     
     // instantiate ceiling to form minimap
@@ -35,8 +35,16 @@ public class Maze : MonoBehaviour
     public int numberofRoom;
     public static Maze instanceMaze;
     public RoomSO roomSo;
-    
-    
+
+
+    [ContextMenu("Set Room Colors")]
+    public void Color()
+    {
+        foreach (var obj in  roomHolderObject.RoomObjectList)
+        {
+          obj.SetFloorColor();
+        }
+    }
 
     public void Generate()
     {
@@ -126,7 +134,7 @@ public class Maze : MonoBehaviour
         MazeCell currentCell = cells[startingRandx,startingRandz];
         // keep the starting cell to spawn player
         startingCell = cells[startingRandx,startingRandz];
-        startingCell.gameObject.GetComponentInChildren<Renderer>().material.color = roomSo.startingCell;
+        // startingCell.gameObject.GetComponentInChildren<Renderer>().material.color = roomSo.startingCell;
         
         currentCell.Visited = true;
         cellsStack.Push(currentCell);
@@ -184,7 +192,7 @@ public class Maze : MonoBehaviour
         
         Debug.Log("DFS is finished");
         
-        StartCoroutine(roomHolderObject.GetComponent<Room>().SpawnRoom());
+        StartCoroutine(roomHolderObject.SpawnRoom());
         yield return new WaitForSeconds(2f);
         isFinished = true;
 

@@ -8,5 +8,7 @@ public class RoomSO : ScriptableObject
     public Color smallRoomColor;
     public Color bigRoomColor;
     public Color startingCell;
-    
+
+    public List<Color> RoomColorList;
+
 }

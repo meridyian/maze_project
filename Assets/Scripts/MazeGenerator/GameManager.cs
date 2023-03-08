@@ -66,6 +66,7 @@ public class GameManager : MonoBehaviour
         // Make sure the file name is unique, in case an existing Prefab has the same name
         localPath = AssetDatabase.GenerateUniqueAssetPath(localPath);
         PrefabUtility.SaveAsPrefabAssetAndConnect(mazeInstance.gameObject, localPath, InteractionMode.UserAction);
+        
     }
     
 
