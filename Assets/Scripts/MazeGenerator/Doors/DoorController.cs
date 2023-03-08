@@ -10,7 +10,7 @@ public class DoorController : MonoBehaviour
 {
     // to open and close the door when player enters to the room
     // move the doors up, collider should be seperated from object
-    // will be assigned to player
+    // will be attached to player
     
     // each room should have an attribute like color, keys should match
     //[SerializeField] private InventoryManager.AllItems _requiredItem;

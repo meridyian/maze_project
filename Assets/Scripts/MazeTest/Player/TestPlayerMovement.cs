@@ -22,7 +22,7 @@ public class TestPlayerMovement : MonoBehaviour
     public static TestPlayerMovement instance;
     public List<string> removedceilings = new List<string>();
     
-
+    
     // controller of testmanager script to load the data when reload button is pressed
     public bool playerIsThere;
     

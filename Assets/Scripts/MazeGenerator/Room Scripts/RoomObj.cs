@@ -1,12 +1,10 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Transactions;
-using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
-using UnityEngine.PlayerLoop;
 using Random = UnityEngine.Random;
+
 
 public class RoomObj : MonoBehaviour
 {
@@ -17,13 +15,15 @@ public class RoomObj : MonoBehaviour
     public RoomSO roomSo;
     public bool doorsSpawned;
     public Color floorColor;
+    //public Color[] floorColorArray;
     public List<MazeCell> FloorList = new List<MazeCell>();
+    public bool isKeyCollected;
 
 
     private void Start()
     {
         StartCoroutine(SpawnDoors());
-        //List<Transform> doorLocations = new List<Transform>();
+        
     }
 
 
@@ -38,20 +38,30 @@ public class RoomObj : MonoBehaviour
         {
             roomWalls.Add(gameObject.transform.GetChild(i));
         }
+
+        /*floorColorArray = new[]
+        {
+            Color.black,
+            Color.blue,
+            Color.cyan,
+            Color.green,
+            Color.magenta,
+            Color.red,
+            Color.white,
+            Color.yellow,
+            Color.grey,
+        };
+        */
     }
 
     public void OnCollisionEnter(Collision other)
     {
         // Change the color of the cells to have better view of different sized rooms on minimap
 
-
         if (other.gameObject.CompareTag("Floor"))
         {
             var cell = other.transform.GetComponentInParent<MazeCell>();
             FloorList.Add(cell);
-            // if(transform.name.StartsWith("Red"))
-            //     other.gameObject.GetComponentInChildren<Renderer>().material.color = roomSo.bigRoomColor;
-            // if(transform.name.StartsWith("Blue"))
             //     other.gameObject.GetComponentInChildren<Renderer>().material.color = roomSo.smallRoomColor;
         }
 
@@ -83,13 +93,12 @@ public class RoomObj : MonoBehaviour
 
     public void SetRandomColor()
     {
-        floorColor = new Color
-        {
-            r = Random.Range(0, 1f),
-            g = Random.Range(0, 1f),
-            b = Random.Range(0, 1f),
-            a = 1
-        };
+        floorColor = Random.ColorHSV();
+        /*System.Random rnd = new System.Random();
+        int randIndex = rnd.Next(floorColorArray.Length);
+        floorColor = floorColorArray[randIndex];
+        */
+
     }
 
     public void SetFloorColor()
@@ -100,4 +109,6 @@ public class RoomObj : MonoBehaviour
             renderer.material.color = floorColor;
         }
     }
+    
+    
 }
