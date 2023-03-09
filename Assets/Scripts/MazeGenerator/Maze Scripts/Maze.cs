@@ -28,7 +28,6 @@ public class Maze : MonoBehaviour
     private MazeCell[,] cells;
     public int numberofRoom;
     public static Maze instanceMaze;
-    public RoomSO roomSo;
 
 
     // set assigned colors to room objects collected in holder

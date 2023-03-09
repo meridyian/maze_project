@@ -14,6 +14,9 @@ public class GameManager : MonoBehaviour
     
     public static GameManager gmInstance;
     public GameObject saveCanvas;
+
+    public bool prefabSaved;
+    public int mazeNumber = 0;
     
     //private RoomWall roomWall;
     //private bool spawnroom;
@@ -27,6 +30,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         BeginGame();
+        
     }
 
     private void Update()
@@ -55,17 +59,27 @@ public class GameManager : MonoBehaviour
 
     public void CreateButton()
     {
+        prefabSaved = false;
+        saveCanvas.SetActive(false);
         Destroy(FindObjectOfType<Maze>().gameObject);
+        Debug.Break();
         BeginGame();
     }
     
 
     public void SaveMaze()
     {
-        string localPath = "Assets/Prefabs/" + "Maze : " + mazeInstance.mazesize.x +" : "+ mazeInstance.mazesize.z + ".prefab";
-        // Make sure the file name is unique, in case an existing Prefab has the same name
-        localPath = AssetDatabase.GenerateUniqueAssetPath(localPath);
-        PrefabUtility.SaveAsPrefabAssetAndConnect(mazeInstance.gameObject, localPath, InteractionMode.UserAction);
+        if (!prefabSaved)
+        {
+            mazeNumber++;
+            string localPath = "Assets/Prefabs/" + "Created Maze" +mazeNumber.ToString()+ ".prefab";
+            // Make sure the file name is unique, in case an existing Prefab has the same name
+            localPath = AssetDatabase.GenerateUniqueAssetPath(localPath);
+            PrefabUtility.SaveAsPrefabAssetAndConnect(mazeInstance.gameObject, localPath, InteractionMode.UserAction);
+            prefabSaved = true;
+            
+        }
+        
         
     }
     

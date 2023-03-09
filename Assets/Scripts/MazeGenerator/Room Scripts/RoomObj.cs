@@ -11,23 +11,31 @@ using Random = UnityEngine.Random;
 public class RoomObj : MonoBehaviour/*,IUnlockable*/
 {
     [SerializeField] public List<Transform> roomWalls;
+    
     public List<Transform> doorLocations;
     public GameObject doorPrefab;
+    
     private int spawnDelay = 3;
+    // if this script is used for maze generation spawn doors, if not don't
     public bool isGenerator = true;
-
     public bool doorsSpawned;
+    
+    //set room colors
     public Color floorColor;
     public List<MazeCell> FloorList = new List<MazeCell>();
+    
+    //set id for rooms to match with keys
     public int Id { get; set; }
     public List<Unlockable> unlockables = new List<Unlockable>();
 
+    
     private void Start()
     {
         StartCoroutine(SpawnDoors());
-        SetLock();
+        //SetLock();
     }
 
+    /*
     public void UnlockDoors()
     { 
         var doors = transform.GetComponentsInChildren<MoveDoor>();
@@ -36,7 +44,9 @@ public class RoomObj : MonoBehaviour/*,IUnlockable*/
             door.UnlockDoor(); 
         }
     }
+    
 
+    
     private void SetLock()
     {
         foreach (var unlockable in unlockables)
@@ -44,12 +54,12 @@ public class RoomObj : MonoBehaviour/*,IUnlockable*/
             unlockable.Lock = this;
         }
     }
+    */
 
 
     public void Awake()
     {
         // store walls of the rooms since they will be changed with doors 
-
         roomWalls = new List<Transform>();
         int iter = gameObject.transform.childCount;
 
@@ -68,7 +78,6 @@ public class RoomObj : MonoBehaviour/*,IUnlockable*/
         {
             var cell = other.transform.GetComponentInParent<MazeCell>();
             FloorList.Add(cell);
-            //     other.gameObject.GetComponentInChildren<Renderer>().material.color = roomSo.smallRoomColor;
         }
 
 
@@ -118,7 +127,7 @@ public class RoomObj : MonoBehaviour/*,IUnlockable*/
         }
     }
 
-
+/*
     public void TryUnlock()
     {
         foreach (var unlockable in unlockables)
@@ -128,6 +137,6 @@ public class RoomObj : MonoBehaviour/*,IUnlockable*/
                 return;
             }
         }
-        UnlockDoors();
-    }
+        //UnlockDoors();
+    }*/
 }

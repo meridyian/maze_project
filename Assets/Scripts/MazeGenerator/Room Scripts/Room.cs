@@ -95,7 +95,7 @@ public class Room : MonoBehaviour
 
         foreach (Vector3 point in points)
         {
-            Debug.Log("point : " +point);
+            Debug.Log("point : " + point);
         }
         
         
@@ -107,8 +107,10 @@ public class Room : MonoBehaviour
             
             int randomIndex = Random.Range(0, roomPrefabs.Length);
             var go = Instantiate(roomPrefabs[randomIndex], points[i], Quaternion.identity, maze.roomHolderObject.transform);
+            //collect room objects in a list to set color
             RoomObjectList.Add(go);
             go.name = roomPrefabs[randomIndex].name + " " +(i+1);
+            // give id for keys
             go.Id = i;
             go.SetRandomColor();
             go.SetFloorColor();
