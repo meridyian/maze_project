@@ -72,7 +72,7 @@ public class GameManager : MonoBehaviour
         if (!prefabSaved)
         {
             mazeNumber++;
-            string localPath = "Assets/Prefabs/" + "Created Maze" +mazeNumber.ToString()+ ".prefab";
+            string localPath = "Assets/Prefabs/Created Maze Objects" + "Maze" +mazeNumber.ToString()+ ".prefab";
             // Make sure the file name is unique, in case an existing Prefab has the same name
             localPath = AssetDatabase.GenerateUniqueAssetPath(localPath);
             PrefabUtility.SaveAsPrefabAssetAndConnect(mazeInstance.gameObject, localPath, InteractionMode.UserAction);
