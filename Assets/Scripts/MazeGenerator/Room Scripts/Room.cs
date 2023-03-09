@@ -10,9 +10,8 @@ using Random = UnityEngine.Random;
 public class Room : MonoBehaviour
 {
     public RoomObj[] roomPrefabs;
-    //public float distanceBetweenRooms;
-    
-    public List<RoomObj> RoomObjectList=new List<RoomObj>();
+
+    public List<RoomObj> RoomObjectList = new List<RoomObj>();
     private List<Vector3> points = new List<Vector3>();
     
     public Maze maze;
@@ -110,6 +109,7 @@ public class Room : MonoBehaviour
             var go = Instantiate(roomPrefabs[randomIndex], points[i], Quaternion.identity, maze.roomHolderObject.transform);
             RoomObjectList.Add(go);
             go.name = roomPrefabs[randomIndex].name + " " +(i+1);
+            go.Id = i;
             go.SetRandomColor();
             go.SetFloorColor();
         }

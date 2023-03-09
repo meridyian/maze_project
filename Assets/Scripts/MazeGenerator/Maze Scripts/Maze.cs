@@ -1,11 +1,6 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.ComponentModel.Design;
-using Unity.VisualScripting;
-using UnityEditor.U2D;
 using UnityEngine;
-using UnityEngine.PlayerLoop;
 using Random = UnityEngine.Random;
 
 public class Maze : MonoBehaviour
@@ -17,9 +12,8 @@ public class Maze : MonoBehaviour
     
     // instantiate room elements
     public float generationStepDelay;
-    //public List<Vector3> deadEndList;
     public Room roomHolderObject;
-    //public Room roomHolder;
+
     
     // instantiate ceiling to form minimap
     public CeilingCell ceilingPrefab;
@@ -37,6 +31,7 @@ public class Maze : MonoBehaviour
     public RoomSO roomSo;
 
 
+    // set assigned colors to room objects collected in holder
     [ContextMenu("Set Room Colors")]
     public void Color()
     {
@@ -134,7 +129,7 @@ public class Maze : MonoBehaviour
         MazeCell currentCell = cells[startingRandx,startingRandz];
         // keep the starting cell to spawn player
         startingCell = cells[startingRandx,startingRandz];
-        // startingCell.gameObject.GetComponentInChildren<Renderer>().material.color = roomSo.startingCell;
+        
         
         currentCell.Visited = true;
         cellsStack.Push(currentCell);
@@ -240,9 +235,5 @@ public class Maze : MonoBehaviour
         newceilingCell.transform.localPosition = new Vector3(x - mazesize.x * 0.5f + 0.5f, 2f, z - mazesize.z * 0.5f + 0.5f);
 
     }
-    
-    
-    
-
     
 }

@@ -1,30 +1,48 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices.ComTypes;
+using Assets.Scripts.MazeGenerator.Unlockables;
 using UnityEditor;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
 
-public class RoomObj : MonoBehaviour
+public class RoomObj : MonoBehaviour/*,IUnlockable*/
 {
     [SerializeField] public List<Transform> roomWalls;
     public List<Transform> doorLocations;
     public GameObject doorPrefab;
     private int spawnDelay = 3;
+    public bool isGenerator = true;
 
     public bool doorsSpawned;
     public Color floorColor;
-    //public Color[] floorColorArray;
     public List<MazeCell> FloorList = new List<MazeCell>();
-    
-    
-
+    public int Id { get; set; }
+    public List<Unlockable> unlockables = new List<Unlockable>();
 
     private void Start()
     {
         StartCoroutine(SpawnDoors());
-        
+        SetLock();
+    }
+
+    public void UnlockDoors()
+    { 
+        var doors = transform.GetComponentsInChildren<MoveDoor>();
+        foreach (var door in doors)
+        {
+            door.UnlockDoor(); 
+        }
+    }
+
+    private void SetLock()
+    {
+        foreach (var unlockable in unlockables)
+        {
+            unlockable.Lock = this;
+        }
     }
 
 
@@ -39,20 +57,7 @@ public class RoomObj : MonoBehaviour
         {
             roomWalls.Add(gameObject.transform.GetChild(i));
         }
-
-        /*floorColorArray = new[]
-        {
-            Color.black,
-            Color.blue,
-            Color.cyan,
-            Color.green,
-            Color.magenta,
-            Color.red,
-            Color.white,
-            Color.yellow,
-            Color.grey,
-        };
-        */
+        
     }
 
     public void OnCollisionEnter(Collision other)
@@ -79,6 +84,7 @@ public class RoomObj : MonoBehaviour
     // spawn doors at places where room walls are collided with maze walls
     public IEnumerator SpawnDoors()
     {
+        if (!isGenerator) yield break;
         yield return new WaitForSeconds(spawnDelay);
         int transformLength = roomWalls.Count;
         for (int i = 0; i < transformLength; i++)
@@ -90,6 +96,7 @@ public class RoomObj : MonoBehaviour
 
         yield return new WaitForSeconds(2);
         transform.parent.GetComponent<Room>().canOpenCanvas = true;
+
     }
 
     public void SetRandomColor()
@@ -110,6 +117,17 @@ public class RoomObj : MonoBehaviour
             renderer.material.color = floorColor;
         }
     }
-    
-    
+
+
+    public void TryUnlock()
+    {
+        foreach (var unlockable in unlockables)
+        {
+            if (!unlockable.IsUnlocked)
+            {
+                return;
+            }
+        }
+        UnlockDoors();
+    }
 }

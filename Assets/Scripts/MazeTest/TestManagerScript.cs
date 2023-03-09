@@ -15,7 +15,7 @@ public class TestManagerScript : MonoBehaviour
     public Maze maze;
     public Canvas canvas;
     public GameObject panel;
-    public AgentScript agent;
+    //public AgentScript agent;
     public GameObject keys;
     
     // check if this is the first play
@@ -55,12 +55,14 @@ public class TestManagerScript : MonoBehaviour
     public void RestartGame()
     {
         // start a completely new game spawned at starting cell, control LoadPlayer method
-        
+        // to test key functionality spawn at (9.5, 0, -9.5)
+
         panel.SetActive(false);
-        GameObject instplayer = Instantiate(player,maze.startingCell.transform.position, Quaternion.identity);
+        //GameObject instplayer = Instantiate(player,maze.startingCell.transform.position, Quaternion.identity);
         // start a new game dont call LoadGame
+        GameObject instplayer = Instantiate(player, new Vector3(9.5f, 0f, -9.5f),Quaternion.identity);
         instplayer.GetComponent<TestPlayerMovement>().playerIsThere = false;
-        FindObjectOfType<AgentScript>().reloadAgent = false;
+        //FindObjectOfType<AgentScript>().reloadAgent = false;
         gt.gameTimer = 0;
         gt.enabled = true;
         
@@ -72,15 +74,17 @@ public class TestManagerScript : MonoBehaviour
     {
         // if reload button is pressed instantiate player at where you left and load last game time and removed ceilings
         // if reload button is pressed agent should be spawned at last position
+        /*
         if (agent.transform.position != AgentScript.agentinstance.agentReload)
             agent.transform.position = AgentScript.agentinstance.agentReload;
         else
         {
             return;
         }
+        */
         panel.SetActive(false);
         GameObject reloadplayer = Instantiate(player,player.GetComponent<TestPlayerMovement>().playerReload, Quaternion.identity);
-        FindObjectOfType<AgentScript>().reloadAgent = true;
+        //FindObjectOfType<AgentScript>().reloadAgent = true;
         reloadplayer.GetComponent<TestPlayerMovement>().playerIsThere = true;
         gt.enabled = true;
        

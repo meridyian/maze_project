@@ -9,8 +9,6 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/MoveDoor.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scenes/Editor/ColorEditor.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scenes/Editor/RoomWallEditor.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/MazeGenerator/Player/PlayerMovement.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/MazeGenerator/Room Scripts/RoomSO.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/MazeTest/DoorToWall.cs" root0="FORCE_HIGHLIGHTING" />
@@ -88,7 +86,10 @@
       <workItem from="1677877068819" duration="49000" />
       <workItem from="1677877144197" duration="361000" />
       <workItem from="1678257753641" duration="6538000" />
-      <workItem from="1678265124329" duration="17205000" />
+      <workItem from="1678265124329" duration="20298000" />
+      <workItem from="1678295038072" duration="7367000" />
+      <workItem from="1678355782935" duration="2007000" />
+      <workItem from="1678369853104" duration="774000" />
     </task>
     <servers />
   </component>
