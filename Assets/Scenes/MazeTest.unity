@@ -272,7 +272,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8225852084451318086, guid: 78fdd698cf58444a59bbbb201b3dfe9d, type: 3}
       propertyPath: roomID
-      value: 7
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8225852084451318086, guid: 78fdd698cf58444a59bbbb201b3dfe9d, type: 3}
       propertyPath: _itemType
@@ -3685,7 +3685,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 249437798950242046, guid: 746cd2cb98be74e9d87460e87763376f, type: 3}
       propertyPath: roomId
-      value: 8
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 249437798950242046, guid: 746cd2cb98be74e9d87460e87763376f, type: 3}
       propertyPath: isGenerator
@@ -3865,7 +3865,7 @@ PrefabInstance:
       objectReference: {fileID: 1546543939}
     - target: {fileID: 5546791122516148599, guid: 746cd2cb98be74e9d87460e87763376f, type: 3}
       propertyPath: roomId
-      value: 1
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 5546791122516148599, guid: 746cd2cb98be74e9d87460e87763376f, type: 3}
       propertyPath: isGenerator
@@ -4022,6 +4022,10 @@ PrefabInstance:
     - target: {fileID: 7957372338292451598, guid: 746cd2cb98be74e9d87460e87763376f, type: 3}
       propertyPath: isGenerator
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8125238627787450051, guid: 746cd2cb98be74e9d87460e87763376f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8195723339911124800, guid: 746cd2cb98be74e9d87460e87763376f, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -4503,7 +4507,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8225852084451318086, guid: 78fdd698cf58444a59bbbb201b3dfe9d, type: 3}
       propertyPath: roomID
-      value: 2
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8225852084451318086, guid: 78fdd698cf58444a59bbbb201b3dfe9d, type: 3}
       propertyPath: _itemType
@@ -5425,7 +5429,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8225852084451318086, guid: 78fdd698cf58444a59bbbb201b3dfe9d, type: 3}
       propertyPath: roomID
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 78fdd698cf58444a59bbbb201b3dfe9d, type: 3}
@@ -7615,7 +7619,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8225852084451318086, guid: 78fdd698cf58444a59bbbb201b3dfe9d, type: 3}
       propertyPath: roomID
-      value: 5
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8225852084451318086, guid: 78fdd698cf58444a59bbbb201b3dfe9d, type: 3}
       propertyPath: _itemType

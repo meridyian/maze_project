@@ -8,7 +8,7 @@ using UnityEngine;
 using Random = UnityEngine.Random;
 
 
-public class RoomObj : MonoBehaviour/*,IUnlockable*/
+public class RoomObj : MonoBehaviour
 {
     [SerializeField] public List<Transform> roomWalls;
     
