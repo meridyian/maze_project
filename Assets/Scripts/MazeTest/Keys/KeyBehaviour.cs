@@ -5,16 +5,16 @@ using UnityEngine;
 
 public class KeyBehaviour : MonoBehaviour
 {
-    [SerializeField] private InventoryManager.AllKeys _itemType;
-    
-    private void OnTriggerEnter(Collider collision)
+    public int roomID;
+
+    public void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (other.CompareTag("Player"))
         {
-            InventoryManager.Instance.AddKey(_itemType);
+            KeyCollector keyCollector = other.GetComponent<KeyCollector>();
+            keyCollector.AddKey(roomID, gameObject);
             gameObject.SetActive(false);
-            //transform.parent.GetComponent<KeySwitch>().isKeyCollected = true;
         }
     }
-    
+
 }

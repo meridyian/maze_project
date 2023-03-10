@@ -1,19 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
+using TreeEditor;
 using UnityEngine;
 
 public class MoveDoor : MonoBehaviour
 {
-    
-    //[SerializeField] public InventoryManager.AllKeys _requiredKey;
-    
-    
+    public int roomID;
+
+    public void Start()
+    {
+        roomID = transform.parent.GetComponent<RoomObj>().roomId;
+    }
+ 
     private void OnTriggerEnter(Collider other)
     {
+
         if (other.gameObject.CompareTag("Player"))
         {
+            
+            KeyCollector keyCollector = other.GetComponent<KeyCollector>();
+            
             //check if player has required key
-            if (true)
+            if (keyCollector.keys.ContainsKey(roomID))
             {
                 // add check for key
                 transform.GetComponent<BoxCollider>().isTrigger = true;
@@ -40,14 +48,5 @@ public class MoveDoor : MonoBehaviour
         }
     }
 
-    /*
-    public bool HasRequiredKey(InventoryManager.AllKeys keyRequired)
-    {
-        if (InventoryManager.Instance._inventoryItems.Contains(keyRequired))
-            return true;
-        else
-            return false;
-    }
-    */
     
 }

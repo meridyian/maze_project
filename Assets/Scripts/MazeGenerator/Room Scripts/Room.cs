@@ -111,7 +111,7 @@ public class Room : MonoBehaviour
             RoomObjectList.Add(go);
             go.name = roomPrefabs[randomIndex].name + " " +(i+1);
             // give id for keys
-            go.Id = i;
+            go.roomId = i+1;
             go.SetRandomColor();
             go.SetFloorColor();
         }

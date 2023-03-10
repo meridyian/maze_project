@@ -25,37 +25,17 @@ public class RoomObj : MonoBehaviour/*,IUnlockable*/
     public List<MazeCell> FloorList = new List<MazeCell>();
     
     //set id for rooms to match with keys
-    public int Id { get; set; }
-    public List<Unlockable> unlockables = new List<Unlockable>();
+    public int roomId;
 
-    
+
+
     private void Start()
     {
         StartCoroutine(SpawnDoors());
-        //SetLock();
+       
     }
-
-    /*
-    public void UnlockDoors()
-    { 
-        var doors = transform.GetComponentsInChildren<MoveDoor>();
-        foreach (var door in doors)
-        {
-            door.UnlockDoor(); 
-        }
-    }
-    
 
     
-    private void SetLock()
-    {
-        foreach (var unlockable in unlockables)
-        {
-            unlockable.Lock = this;
-        }
-    }
-    */
-
 
     public void Awake()
     {
@@ -127,16 +107,5 @@ public class RoomObj : MonoBehaviour/*,IUnlockable*/
         }
     }
 
-/*
-    public void TryUnlock()
-    {
-        foreach (var unlockable in unlockables)
-        {
-            if (!unlockable.IsUnlocked)
-            {
-                return;
-            }
-        }
-        //UnlockDoors();
-    }*/
+
 }
