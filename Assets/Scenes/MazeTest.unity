@@ -7332,7 +7332,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8225852084451318086, guid: 78fdd698cf58444a59bbbb201b3dfe9d, type: 3}
       propertyPath: roomID
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8225852084451318086, guid: 78fdd698cf58444a59bbbb201b3dfe9d, type: 3}
       propertyPath: _itemType
@@ -7619,7 +7619,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8225852084451318086, guid: 78fdd698cf58444a59bbbb201b3dfe9d, type: 3}
       propertyPath: roomID
-      value: 8
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8225852084451318086, guid: 78fdd698cf58444a59bbbb201b3dfe9d, type: 3}
       propertyPath: _itemType
