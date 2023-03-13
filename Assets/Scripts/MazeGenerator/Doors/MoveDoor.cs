@@ -6,26 +6,26 @@ using UnityEngine;
 public class MoveDoor : MonoBehaviour
 {
     public int roomID;
-
+    
+    
     public void Start()
     {
+        // get the roomIDs to match with keyIDs
         roomID = transform.parent.GetComponent<RoomObj>().roomId;
     }
  
     private void OnTriggerEnter(Collider other)
     {
-
         if (other.gameObject.CompareTag("Player"))
         {
-            
+            //check if player has required key
             KeyCollector keyCollector = other.GetComponent<KeyCollector>();
             
-            //check if player has required key
             if (keyCollector.keys.ContainsKey(roomID))
             {
-                // add check for key
+                // add check for key move the door if it has key
                 transform.GetComponent<BoxCollider>().isTrigger = true;
-                Debug.Log("player just entered");
+                Debug.Log("player can enter");
                 transform.GetChild(0).position =
                     new Vector3(transform.GetChild(0).position.x, 1.5f, transform.GetChild(0).position.z);
             }
@@ -42,7 +42,7 @@ public class MoveDoor : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             transform.GetComponent<BoxCollider>().isTrigger = true;
-            Debug.Log("player is going out");
+            Debug.Log("close the door");
             transform.GetChild(0).position = new Vector3(transform.GetChild(0).position.x, 0.5f,
                 transform.GetChild(0).position.z);
         }

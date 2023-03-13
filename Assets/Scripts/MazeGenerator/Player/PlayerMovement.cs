@@ -18,10 +18,7 @@ public class PlayerMovement : MonoBehaviour
     public float range = 5f;
     float horizontalInput;
     float verticalInput;
-    //private GameTimer gameTimer;
-    
-    
-    
+
     Vector3 moveDirection;
     Rigidbody rb;
 
@@ -30,7 +27,6 @@ public class PlayerMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
-        
         
         
     }

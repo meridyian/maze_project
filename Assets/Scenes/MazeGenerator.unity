@@ -169,6 +169,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mazePrefab: {fileID: 4552829675547296550, guid: e91d38af152744237b0d8acf3c29c51b, type: 3}
   saveCanvas: {fileID: 1094059030}
+  prefabSaved: 0
+  mazeNumber: 0
 --- !u!1 &358855363
 GameObject:
   m_ObjectHideFlags: 0
@@ -206,7 +208,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -101}
+  m_AnchoredPosition: {x: 0, y: -155}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &358855365
@@ -514,7 +516,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -146}
+  m_AnchoredPosition: {x: 0, y: -224}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &865776624
@@ -629,7 +631,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1094059031
 MonoBehaviour:
   m_ObjectHideFlags: 0

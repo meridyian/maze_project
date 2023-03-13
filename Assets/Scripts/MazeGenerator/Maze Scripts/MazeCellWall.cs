@@ -12,7 +12,7 @@ public class MazeCellWall : MonoBehaviour
     private bool visible = true;
     private Renderer r;
     private Collider c;
-    //public bool playercanPass;
+   
 
     public bool Visible
     {
@@ -24,7 +24,6 @@ public class MazeCellWall : MonoBehaviour
 
         }
     }
-
     
 
     public void Awake()

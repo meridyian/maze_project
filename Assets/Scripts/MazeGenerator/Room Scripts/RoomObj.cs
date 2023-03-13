@@ -1,8 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Runtime.InteropServices.ComTypes;
-using Assets.Scripts.MazeGenerator.Unlockables;
+
 using UnityEditor;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -32,7 +31,6 @@ public class RoomObj : MonoBehaviour
     private void Start()
     {
         StartCoroutine(SpawnDoors());
-       
     }
 
     
@@ -71,6 +69,7 @@ public class RoomObj : MonoBehaviour
 
     // since they can be used as passages
     // spawn doors at places where room walls are collided with maze walls
+    // since you reach RoomObj script dont run spawn doors if you are not using it to generate maze
     public IEnumerator SpawnDoors()
     {
         if (!isGenerator) yield break;

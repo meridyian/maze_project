@@ -9,16 +9,18 @@ using Random = UnityEngine.Random;
 
 public class Room : MonoBehaviour
 {
+    // get the rooms that will be spawned
     public RoomObj[] roomPrefabs;
-
+    
+    // to change the colors
     public List<RoomObj> RoomObjectList = new List<RoomObj>();
+    
     private List<Vector3> points = new List<Vector3>();
     
     public Maze maze;
     private MazeCell mazeCell;
     private float maxRoomWidth;
 
-    
     public bool canOpenCanvas { get; set; }
     private RoomWall roomWall;
     public List<float> x = new List<float>();
@@ -31,17 +33,15 @@ public class Room : MonoBehaviour
     }
 
     
-    // to find the largest room in prefabs 
+    // find the largest room in prefabs to arrange spawn area 
     public float SetSize()
     {
         foreach (var item in roomPrefabs)
         {
             float k = item.transform.childCount;
-
             x.Add(k);
             x = x.OrderBy(k => k).ToList();
             maxRoomWidth = x.Last();
-            //minRoomWidth = x.First();
         }
         Debug.Log(maxRoomWidth);
         return maxRoomWidth;
@@ -69,7 +69,6 @@ public class Room : MonoBehaviour
             {
                 points.Add(point);
                 numGeneratedPoints++;
-                Debug.Log("first room");
                 continue;
             }
 
@@ -85,7 +84,7 @@ public class Room : MonoBehaviour
                 }
             }
             
-            // If the new point is valid, add it to the list and increment the number of generated points
+            // If the new point is valid, add it to the list and increase the number of generated points
             if (isValidPoint)
             {
                 points.Add(point);
