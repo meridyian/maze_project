@@ -1,9 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
-using UnityEditor.Build;
-using UnityEngine;
-
 [System.Serializable]
 public struct IntVector2 
 // to be able to change 

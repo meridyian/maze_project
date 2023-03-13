@@ -25,7 +25,6 @@ public class AgentScript : MonoBehaviour
     {
         if (agentinstance != null) return;
         agentinstance = this;
-        
         playerInSightRange = false;
     }
 
@@ -35,6 +34,8 @@ public class AgentScript : MonoBehaviour
         
     }
     
+    
+    // reload agent if reload button is pressed 
     public void LoadAgent()
     {
         if (reloadAgent)
@@ -50,6 +51,7 @@ public class AgentScript : MonoBehaviour
 
     public void Update()
     {
+        // follow player if it is im your FOV range
         playerInSightRange = Physics.CheckSphere(transform.position, sightRange, Player);
         if (playerInSightRange) 
             FollowPlayer();

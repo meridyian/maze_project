@@ -1,22 +1,17 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Net;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.UIElements;
-using Button = UnityEngine.UI.Button;
+
 
 public class TestManagerScript : MonoBehaviour
 {
     public GameObject player;
     public TestTimer gt;
+    
+    [Tooltip("Add the created maze")]
     public Maze maze;
+    
     public Canvas canvas;
     public GameObject panel;
-    //public AgentScript agent;
-    public GameObject keys;
+
     
     // check if this is the first play
     public bool isThereData = false;
@@ -62,7 +57,7 @@ public class TestManagerScript : MonoBehaviour
         // start a new game dont call LoadGame
         GameObject instplayer = Instantiate(player, new Vector3(9.5f, 0f, -9.5f),Quaternion.identity);
         instplayer.GetComponent<TestPlayerMovement>().playerIsThere = false;
-        //FindObjectOfType<AgentScript>().reloadAgent = false;
+
         gt.gameTimer = 0;
         gt.enabled = true;
         

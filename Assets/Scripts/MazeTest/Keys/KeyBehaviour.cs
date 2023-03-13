@@ -1,12 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
-using TreeEditor;
 using UnityEngine;
 
 public class KeyBehaviour : MonoBehaviour
 {
+    
+    // give the corresponding roomIDs for each key
     public int roomID;
 
+    
+    //collect the keys
     public void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
