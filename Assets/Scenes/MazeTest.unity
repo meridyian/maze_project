@@ -3018,7 +3018,6 @@ MonoBehaviour:
   maze: {fileID: 0}
   canvas: {fileID: 1116843907}
   panel: {fileID: 1116843908}
-  keys: {fileID: 0}
   isThereData: 0
 --- !u!224 &882468589
 RectTransform:
@@ -3563,6 +3562,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 558685556}
+    - target: {fileID: 6843612423093027629, guid: 746cd2cb98be74e9d87460e87763376f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6886210710891717640, guid: 746cd2cb98be74e9d87460e87763376f, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
