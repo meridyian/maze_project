@@ -113,7 +113,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2642816162603277453}
-  - component: {fileID: 113380839105046514}
   m_Layer: 0
   m_Name: Maze Cell Holder
   m_TagString: Untagged
@@ -136,19 +135,6 @@ Transform:
   m_Father: {fileID: 4552829675547296549}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &113380839105046514
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7057403454469067526}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c87bfec872a0b4d27b236f9da1df6b9c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mazeCellList: []
 --- !u!1001 &4679876519413135795
 PrefabInstance:
   m_ObjectHideFlags: 0
