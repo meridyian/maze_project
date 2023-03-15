@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
-[CustomEditor(typeof(DoorToWall))]
+[CustomEditor(typeof(DoorToWall)), CanEditMultipleObjects]
 
 
 public class WallEditor : Editor 

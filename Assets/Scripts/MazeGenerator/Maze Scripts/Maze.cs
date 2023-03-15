@@ -71,6 +71,7 @@ public class Maze : MonoBehaviour
         newCell.transform.localPosition = new Vector3(x - mazesize.x * 0.5f + 0.5f, 0f, z - mazesize.z * 0.5f + 0.5f);
         
         
+        
         // if x ==0 or z == 0, the outer cells will be created as west and south
         
         if (x == 0)
